@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_094215) do
+ActiveRecord::Schema.define(version: 2019_07_03_120144) do
 
   create_table "cherries", force: :cascade do |t|
     t.integer "farm_id"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2019_07_03_094215) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name_kanji"
-    t.string "name_nana"
     t.string "phone_number"
     t.string "post_code"
     t.string "address"
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_094215) do
     t.integer "resigration_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_kana"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
