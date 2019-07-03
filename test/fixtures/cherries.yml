@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farm_id: 1
+  cherry_name: MyString
+  taste: MyString
+  sour: MyString
+  cherry_image_id: MyString
+  size: MyString
+
+two:
+  farm_id: 1
+  cherry_name: MyString
+  taste: MyString
+  sour: MyString
+  cherry_image_id: MyString
+  size: MyString

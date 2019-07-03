@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_073042) do
+ActiveRecord::Schema.define(version: 2019_07_03_094215) do
+
+  create_table "cherries", force: :cascade do |t|
+    t.integer "farm_id"
+    t.string "cherry_name"
+    t.string "taste"
+    t.string "sour"
+    t.string "cherry_image_id"
+    t.string "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "farms", force: :cascade do |t|
+    t.string "farm_name"
+    t.string "business_day"
+    t.string "map"
+    t.integer "user_id"
+    t.string "farm_image_id"
+    t.integer "price"
+    t.string "area"
+    t.text "feature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
