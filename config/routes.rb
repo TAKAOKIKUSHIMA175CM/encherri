@@ -20,6 +20,8 @@ devise_for :users
   get "admin/farms/:id/edit" => "farms#admin_edit", as: "edit_admin_farm"
   patch "admin/farms/:id" => "farms#admin_update", as: "update_admin_farm"
   delete "admin/farms/:id" => "farms#admin_destroy", as: "destroy_admin_farm"
+  get "area" => "farms#area_index", as: "area"
+  post "area/search" => "farm#area_search"
 
 end
 
@@ -56,7 +58,7 @@ end
     get 'farms/admin_destroy'
 =end
 =begin
-           Prefix Verb   URI Pattern                                                                              Controller#Action
+                   Prefix Verb   URI Pattern                                                                              Controller#Action
          new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
              user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
      destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -102,6 +104,9 @@ end
           edit_admin_farm GET    /admin/farms/:id/edit(.:format)                                                          farms#admin_edit
         update_admin_farm PATCH  /admin/farms/:id(.:format)                                                               farms#admin_update
        destroy_admin_farm DELETE /admin/farms/:id(.:format)                                                               farms#admin_destroy
+                     area GET    /area(.:format)                                                                          farms#area_index
+              area_search POST   /area/search(.:format)                                                                   farm#area_search
+               refile_app        /attachments                                                                             #<Refile::App app_file="/home/vagrant/.bundle/ruby/2.5.0/refile-46b4178654e6/lib/refile/app.rb">
        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show

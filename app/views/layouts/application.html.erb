@@ -10,6 +10,108 @@
   </head>
 
   <body>
+    <header>
+      <div class="headline">
+        <h1>encheri</h1>
+      </div>
+
+      <nav>
+        <ul class="nav-list">
+          <!-- 管理人がログインしているかのチェック -->
+          <% if user_signed_in? %>
+
+              <!-- サイト管理人がログインした場合 -->
+              <% if current_user.admin_flag == 1 %>
+                  <li class="nav-list-item">
+                    <a href="#">farm</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">breed</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">area</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">about</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">farm edit</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">breed new</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">breed edit</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">log out</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <input type="search" name="search" placeholder="農園名を入力">
+                  <input type="submit" name="submit" value="search">
+                  </li>
+
+              <!-- 農場管理人がログインした場合 -->
+              <% else %>
+                  <li class="nav-list-item">
+                    <a href="#">farm</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">breed</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">area</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">about</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">new farm</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">my farm edit</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="#">log out</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <input type="search" name="search" placeholder="農園名を入力">
+                  <input type="submit" name="submit" value="search">
+                  </li>
+
+              <% end %>
+
+          <!-- ログインしていない場合-->
+          <% else %>
+              <li class="nav-list-item">
+            <a href="#">farm</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="#">breed</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="#">area</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="#">about</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="#">log in</a>
+          </li>
+          <li class="nav-list-item">
+            <input type="search" name="search" placeholder="農園名を入力">
+          <input type="submit" name="submit" value="search">
+          </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <hr>
+
+
     <%= yield %>
+    <footer>
+        <p class="footer-title">encheri</p>
+    </footer>
   </body>
 </html>

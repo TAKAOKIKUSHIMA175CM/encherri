@@ -40,4 +40,11 @@ class FarmsController < ApplicationController
 
   def admin_destroy
   end
+
+  def area_index
+  end
+
+  def area_search
+  end
+
 end

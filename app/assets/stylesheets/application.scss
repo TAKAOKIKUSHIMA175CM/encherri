@@ -14,3 +14,179 @@
  *= require_self
  */
     @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body{
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+header{
+	height: 150px;
+	padding: 15px 0;
+	margin :0 auto;
+	text-align: center;
+}
+.header-margin{
+	margin: 0 0 30px 0;
+}
+.headline{
+	text-align: center;
+}
+
+.nav-list{
+	text-align: center;
+	padding:15px 0;
+	margin: 0 auto;
+}
+
+.nav-list-item{
+	display: inline-block;
+	padding:10px 20px;
+}
+
+.main-visual {
+	width: 100%;
+	height: 300px;
+	background: image-url('cherries.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.main-visual-content {
+	width: 40%;
+	height: 300px;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	padding-top: 110px;
+}
+.main-visual-text {
+	color: #fff;
+}
+.main-visual-consept{
+	color: #fff;
+	margin-top: 30px;
+}
+
+footer{
+	background-color: #FF4F50;
+	margin-top: 30px;
+	padding: 25px 0 10px 0;
+}
+.footer-title{
+	text-align: center;
+	color: white;
+}
+
+
+/*main {*/
+	/*width:850px;*/
+	/*margin: 0 auto;*/
+	/*padding: 70px 0;*/
+/*}*/
+
+/*sidebar*/
+/*.cherries{*/
+	/*width: 20%;*/
+	/*float: left;*/
+	/*margin-right: 60px;*/
+/*}*/
+/*.cherries-breed{*/
+	/*text-align: center;*/
+	/*line-height: 0.6;*/
+/*}*/
+/*.cherry-box{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #FF0000;
+}
+.cherry-image{
+	margin: 0 auto;
+	width: 110px;
+	background-position: center;
+	background-size: cover;
+	height: 80px;
+	padding-top:30px;
+}
+.cherry-name{
+	text-align: center;
+	padding-top: 10px;
+}
+
+/*farm*/
+/*.farm{
+	width: 540px;
+	float: left;
+	margin-right: 10px;
+}
+.farm-headline{
+	text-align: center;
+	line-height: 0.6;
+}
+.farm-box{
+	padding-top: 50px;
+}
+.farm-item{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px, solid #FF0000;
+}
+.farm-image{
+	float: left;
+	width: 275px;
+	background-position: center;
+	background-size: cover;
+	height:180px;
+	background: image-url('cherries.jpg');
+}
+.farm-text{
+	float: left;
+	padding:30px 0 0 25px;
+	width: calc(100% - 270px);
+}
+.farm-name{
+	padding-bottom: 15px;
+}
+.farm-address{
+	font-size: 15px;
+}
+.farm-time{
+	display: inline-block;
+	font-size: 15px;
+}
+.farm-price{
+	font-size: 15px;
+}
+.farm-breed{
+	display: inline-block;
+	font-size: 15px;
+}
+.pagenation {
+	text-align: center;
+	padding-top: 50px;
+}
+.pagenation p {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin: 0 5px;
+	color: #FF0000;
+	background-color: #fff;
+	border-radius: 3px;
+    line-height: 30px;
+}*/
