@@ -9,15 +9,21 @@ class FarmsController < ApplicationController
   end
 
   def new
+    @farm = Farm.new
   end
 
   def create
+    farm = Farm.new(farm_params)
+    farm.save
+    render "new_farm_path"
   end
 
   def edit
+    @farm = Farm.find(params[:id])
   end
 
   def update
+    farm = Farm.find(prams[:id])
   end
 
   def destroy
@@ -45,6 +51,17 @@ class FarmsController < ApplicationController
   end
 
   def area_search
+  end
+
+# ストロングパラメーター
+# 以下の入力を許可
+  private
+  def farm_params
+    params.require(:farm).parmit(:farm_name, :business_day, :map, :farm_image_id, :price, :area, :feature)
+  end
+
+  def search_params
+    params.require(:farm).parmit(:farm_name)
   end
 
 end

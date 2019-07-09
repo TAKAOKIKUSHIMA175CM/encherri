@@ -23,28 +23,28 @@
               <!-- サイト管理人がログインした場合 -->
               <% if current_user.admin_flag == 1 %>
                   <li class="nav-list-item">
-                    <a href="#">farm</a>
+                    <%= link_to 'farm_path', admin_farms, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">breed</a>
+                    <%= link_to 'breed', cherries_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">area</a>
+                    <%= link_to 'area', area_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">about</a>
+                    <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">farm edit</a>
+                    <%= link_to 'farm edit', edit_admin_farm_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">breed new</a>
+                    <%= link_to 'breed new', new_cherry_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">breed edit</a>
+                    <%= link_to 'breed edit', edit_cherry_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">log out</a>
+                    <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <input type="search" name="search" placeholder="農園名を入力">
@@ -54,25 +54,25 @@
               <!-- 農場管理人がログインした場合 -->
               <% else %>
                   <li class="nav-list-item">
-                    <a href="#">farm</a>
+                    <%= link_to 'farm', farms_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">breed</a>
+                    <%= link_to 'breed', cherries_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">area</a>
+                    <%= link_to 'area', area_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">about</a>
+                    <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">new farm</a>
+                    <%= link_to 'new farm', new_farm_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">my farm edit</a>
+                    <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <a href="#">log out</a>
+                    <%= link_to 'sign out', user_registration_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <input type="search" name="search" placeholder="農園名を入力">
@@ -84,19 +84,22 @@
           <!-- ログインしていない場合-->
           <% else %>
               <li class="nav-list-item">
-            <a href="#">farm</a>
+            <%= link_to 'farm', farms_path, class: "header-title nav-item nav-link text-dark" %>
           </li>
           <li class="nav-list-item">
-            <a href="#">breed</a>
+            <%= link_to 'breed', cherries_path, class: "header-title nav-item nav-link text-dark" %>
           </li>
           <li class="nav-list-item">
-            <a href="#">area</a>
+            <%= link_to 'area', area_path, class: "header-title nav-item nav-link text-dark" %>
           </li>
           <li class="nav-list-item">
-            <a href="#">about</a>
+            <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
           </li>
           <li class="nav-list-item">
-            <a href="#">log in</a>
+            <%= link_to 'log in', new_user_session_path, class: "header-title nav-item nav-link text-dark" %>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to 'sign up', new_user_registration_path, class: "header-title nav-item nav-link text-dark" %>
           </li>
           <li class="nav-list-item">
             <input type="search" name="search" placeholder="農園名を入力">
