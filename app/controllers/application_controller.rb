@@ -40,6 +40,11 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def search
+		# @farm = Farm.new
+		# render "index"
+	end
+
 
 	protected
 	def configure_permitted_parameters

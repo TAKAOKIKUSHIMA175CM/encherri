@@ -1,128 +1,38 @@
-<div class="container">
-  	<div class="row">
-		<div class="col-12">
-		  <h3 class="text-center my-5">Breed</h3>
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
 
-		    <!-- ２品種目 -->
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
-
-		    <!-- 3品種目 -->
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
-
-		    <!-- 4品種目 -->
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
-
-
-
-		</div>
-	</div>
-</div>
+<h3 class="text-center my-5">My Farm</h3>
+  <% @farms.each do |f| %>
+    <div class="container">
+      <div class="row">
+          <div class="col-4">
+            <img src="assets/cherries1.jpg" height="120" width="150">
+          </div>
+          <div class="col-5">
+            <div style="height: 40px; width: 300px">
+              <p><%= f.farm_name %></p>
+            </div>
+            <div style="height: 40px; width: 300px">
+              <p>住所 : <%= f.user.address %></p>
+            </div>
+            <div style="height: 40px; width: 300px">
+              <p>営業期間 : <%= f.business_day %></p>
+            </div>
+          </div>
+        <div class="col-3">
+            <div style="height: 40px; width: 200px">
+              <%= button_to "品種情報追加", cherries_new_path(f.id), method: :get %>
+            </div>
+            <div style="height: 40px; width: 200px">
+              <p>料金 : <%= f.price %>円</p>
+            </div>
+            <!-- ファームに紐づくcherryを持ってくるので変数を定義しなくても以下の書き方でいける -->
+            <!-- farmから見てcherryは 1:N なので　f.cherries でeach文を回す -->
+            <% f.cherries.each do |cherry| %>
+              <div style="height: 40px; width: 200px">
+                <p>品種 : <%= cherry.cherry_name %></p>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <hr>
+    </div>
+  <% end %>

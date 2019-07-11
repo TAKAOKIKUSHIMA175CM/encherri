@@ -40,122 +40,39 @@
     <!-- farm -->
   <div class="col-9">
       <h3 class="text-center my-5">Farms</h3>
+      <% @farms.each do |farm| %>
       <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <img src="assets/cherries1.jpg" height="120" width="150">
           </div>
           <div class="col-5">
-            <div style="height: 40px; width: 200px">
-              <p>農園名<p>
+            <div style="height: 40px; width: 300px">
+              <p><%= farm.farm_name %></p>
             </div>
-            <div style="height: 40px; width: 200px">
-              <p>住所<p>
+            <div style="height: 40px; width: 300px">
+              <p>住所 : <%= farm.user.address %></p>
             </div>
-            <div style="height: 40px; width: 200px">
-              <p>営業期間</p>
+            <div style="height: 40px; width: 300px">
+              <p>営業期間 : <%= farm.business_day %></p>
             </div>
           </div>
-        <div class="col-3">
-            <div style="height: 40px; width: 100px">
+        <div class="col-4">
+            <div style="height: 40px; width: 200px">
             </div>
-            <div style="height: 40px; width: 100px">
-              <p>料金<p>
+            <div style="height: 40px; width: 200px">
+              <p>入園料 : <%= farm.price %>円</p>
             </div>
-            <div style="height: 40px; width: 100px">
-              <p>品種</p>
-            </div>
+            <!-- ファームに紐づくcherryを持ってくるので変数を定義しなくても以下の書き方でいける -->
+            <!-- farmから見てcherryは 1:N なので　farm.cherries でeach文を回す -->
+            <% farm.cherries.each do |cherry| %>
+              <div style="height: 40px; width: 200px">
+                <p>品種 : <%= cherry.cherry_name %></p>
+              </div>
+            <% end %>
         </div>
       </div>
       <hr>
-
-
-    <!-- farm２件目 -->
-      <div class="row">
-          <div class="col-4">
-              <img src="assets/cherries1.jpg" height="120" width="150">
-          </div>
-          <div class="col-5">
-              <div style="height: 40px; width: 200px">
-                <p>農園名<p>
-              </div>
-              <div style="height: 40px; width: 200px">
-                <p>住所<p>
-              </div>
-              <div style="height: 40px; width: 200px">
-                <p>営業期間</p>
-              </div>
-          </div>
-          <div class="col-3">
-              <div style="height: 40px; width: 100px">
-              </div>
-              <div style="height: 40px; width: 100px">
-                <p>料金<p>
-              </div>
-              <div style="height: 40px; width: 100px">
-                <p>品種</p>
-              </div>
-          </div>
-      </div>
-      <hr>
-
-  <!-- farm３件目 -->
-      <div class="row">
-          <div class="col-4">
-              <img src="assets/cherries1.jpg" height="120" width="150">
-          </div>
-          <div class="col-5">
-              <div style="height: 40px; width: 200px">
-                <p>農園名<p>
-              </div>
-              <div style="height: 40px; width: 200px">
-                <p>住所<p>
-              </div>
-              <div style="height: 40px; width: 200px">
-                <p>営業期間</p>
-              </div>
-          </div>
-          <div class="col-3">
-              <div style="height: 40px; width: 100px">
-              </div>
-              <div style="height: 40px; width: 100px">
-                <p>料金<p>
-              </div>
-              <div style="height: 40px; width: 100px">
-                <p>品種</p>
-              </div>
-          </div>
-      </div>
-      <hr>
-
-  <!-- farm４件目 -->
-      <div class="row">
-          <div class="col-4">
-              <img src="assets/cherries1.jpg" height="120" width="150">
-          </div>
-          <div class="col-5">
-              <div style="height: 40px; width: 200px">
-                <p>農園名<p>
-              </div>
-              <div style="height: 40px; width: 200px">
-                <p>住所<p>
-              </div>
-              <div style="height: 40px; width: 200px">
-                <p>営業期間</p>
-              </div>
-          </div>
-          <div class="col-3">
-              <div style="height: 40px; width: 100px">
-              </div>
-              <div style="height: 40px; width: 100px">
-                <p>料金<p>
-              </div>
-              <div style="height: 40px; width: 100px">
-                <p>品種</p>
-              </div>
-          </div>
-      </div>
-      <hr>
-    </div>
+      <% end %>
 
       <div class="pagination">
                 <p>prev</p>
