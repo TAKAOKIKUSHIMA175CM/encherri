@@ -13,21 +13,20 @@ class CherriesController < ApplicationController
   end
 
   def create
-    # cherry = Cherry.new(cherry_params)
-    # cherry.save
-    # farm = Farm.find(params[:farm_id])
     cherry = Cherry.new(cherry_params)
-    # cherry.user_id = current_user.id
-    # cherry = current_user.cherries.new(cherry_params)
-    # cherry.farm_id = farm.id
     cherry.save
     redirect_to cherries_path
   end
 
   def show
+    @farm = Farm.find(params[:id])
+    @cherry = Cherry.where(farm_id: @farm.id)
   end
 
   def edit
+    @cherry = Cherry.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    @farm = Farm.Where(user_id: @user_id)
   end
 
   def update
@@ -36,7 +35,11 @@ class CherriesController < ApplicationController
   def destroy
   end
 
-   def admin_new
+  def admin_index
+    @cherries = Cherry.all
+  end
+
+  def admin_new
     @cherry = Cherry.new
   end
 

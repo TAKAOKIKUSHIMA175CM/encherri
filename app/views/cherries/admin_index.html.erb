@@ -2,127 +2,37 @@
   	<div class="row">
 		<div class="col-12">
 		  <h3 class="text-center my-5">Breed</h3>
+		  <% @cherries.each do |f| %>
 		    <div class="row">
 		    	<div class="col-4 mt-5">
 		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
+		    		 <p class="text-center my-3"><%= f.cherry_name %></p>
 		    	</div>
 		    	<div class="col-8 mt-5">
 		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
+		    			<p><%= f.content %></p>
 		    		</div>
 		    			<div class="row">
 		    				<div class="col-4">
 		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
+		    						<p>大きさ : <%= f.size %></p><hr>
 		    					</div>
 		    				</div>
 		    				<div class="col-4">
 		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
+		    						<p>甘味 : <%= f.taste %></p><hr>
 		    					</div>
 		    				</div>
 		    				<div class="col-4">
 		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
+		    						<p>酸味 : <%= f.sour %></p><hr>
 		    					</div>
 		    				</div>
 		    			</div>
 		    	</div>
 		    </div>
-
-		    <!-- ２品種目 -->
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
-
-		    <!-- 3品種目 -->
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
-
-		    <!-- 4品種目 -->
-		    <div class="row">
-		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="130" width="170" class="rounded mx-auto d-block">
-		    		 <p class="text-center my-3">紅秀峰</p>
-		    	</div>
-		    	<div class="col-8 mt-5">
-		    		<div style="height: 130px; width: 600px">
-		    			<p>詳細</p>
-		    		</div>
-		    			<div class="row">
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>大きさ : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>甘味 : </p><hr>
-		    					</div>
-		    				</div>
-		    				<div class="col-4">
-		    					<div style="height: 40px; width: 200px">
-		    						<p>酸味 : </p><hr>
-		    					</div>
-		    				</div>
-		    			</div>
-		    	</div>
-		    </div>
-
-
-
+		  <% end %>
 		</div>
 	</div>
 </div>
+

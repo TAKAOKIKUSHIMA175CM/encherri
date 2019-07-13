@@ -41,6 +41,7 @@
   <div class="col-9">
       <h3 class="text-center my-5">Farms</h3>
       <% @farms.each do |farm| %>
+      <%= link_to farm_path(farm.id) do %>
       <div class="row">
           <div class="col-3">
             <img src="assets/cherries1.jpg" height="120" width="150">
@@ -62,7 +63,7 @@
             <div style="height: 40px; width: 200px">
               <p>入園料 : <%= farm.price %>円</p>
             </div>
-            <!-- ファームに紐づくcherryを持ってくるので変数を定義しなくても以下の書き方でいける -->
+            <!-- ファームに紐づくcherryを持ってくるので上記から続いているeach文のfarmと.cherriesの以下の書き方でいける -->
             <!-- farmから見てcherryは 1:N なので　farm.cherries でeach文を回す -->
             <% farm.cherries.each do |cherry| %>
               <div style="height: 40px; width: 200px">
@@ -71,6 +72,7 @@
             <% end %>
         </div>
       </div>
+      <% end %>
       <hr>
       <% end %>
 

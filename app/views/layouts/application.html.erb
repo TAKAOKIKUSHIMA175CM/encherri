@@ -23,7 +23,7 @@
               <!-- サイト管理人がログインした場合 -->
               <% if current_user.admin_flag == 1 %>
                   <li class="nav-list-item">
-                    <%= link_to 'farm_path', admin_farms, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'farm', admin_farms_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <%= link_to 'breed', cherries_path, class: "header-title nav-item nav-link text-dark" %>
@@ -35,13 +35,13 @@
                     <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'farm edit', edit_admin_farm_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'farm list', admin_farms_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'breed new', new_cherry_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'breed new', admin_cherries_new_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'breed edit', edit_cherry_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'breed list', admin_cherries_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>

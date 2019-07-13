@@ -5,15 +5,44 @@
                     <div class="col-4">
                     <%= form_for [@farm, @cherry], url: cherries_path do |f| %>
                         <br>
-                        <p class="text-center">主力品種入力</p>
+                        <p>主力品種入力</p>
                     </div>
                     <div class="col-8">
-                        <p>＊主な取り扱い品種名を１つ入力して下さい。
+                        <p>＊主な取り扱い品種名を１つ入力して下さい。</p>
                         <%= f.text_field :cherry_name, :size=>"80" %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
-                        <%= f.submit '登録' %>
                     </div>
+
+                    <div class="col-4">
+                        <p>サイズ</p>
+                    </div>
+                    <div class="col-8">
+                        <!-- プルダウンの書き方。今回はチャートを作るのでカラムをintegerにしている -->
+                        <%= f.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %>
+                        <%= f.hidden_field :farm_id, :value => @farm.id %>
+                        <hr>
+                    </div>
+
+                    <div class="col-4">
+                        <p>甘味</p>
+                    </div>
+                    <div class="col-8">
+                        <!-- プルダウンの書き方。今回はチャートを作るのでカラムをintegerにしている -->
+                        <%= f.select :taste, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %>
+                        <%= f.hidden_field :farm_id, :value => @farm.id %>
+                        <hr>
+                    </div>
+
+                    <div class="col-4">
+                        <p>酸味</p>
+                    </div>
+                    <div class="col-8">
+                        <%= f.select :sour, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %>
+                        <%= f.hidden_field :farm_id, :value => @farm.id %>
+                        <hr>
+                    </div>
+                        <%= f.submit '登録' %>
                     <% end %>
                 </div>
     </div>

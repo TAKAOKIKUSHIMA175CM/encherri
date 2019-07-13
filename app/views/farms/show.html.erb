@@ -1,21 +1,21 @@
 <div class="container">
   	<div class="row">
 		<div class="col-12">
-		  <h1 class="text-center my-5">農園名</h1>
+		  <h1 class="text-center my-5"><%= @farm.farm_name %></h1>
 		    <div class="row">
 		    	<div class="col-4 mt-5">
-		    		 <img src="assets/cherries1.jpg" height="200" width="250" class="rounded mx-auto d-block">
+		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
 		    	</div>
 		    	<div class="col-8">
-		    			<p >住所</p>
+		    			<p >住所 : <%= @farm.user.address %></p>
 		    			<hr>
-		    			<p class= "mt-5">電話番号</p>
+		    			<p class= "mt-5">電話番号 : <%= @farm.user.phone_number %></p>
 		    			<hr>
-		    			<p class= "mt-5">営業期間</p>
+		    			<p class= "mt-5">営業期間 : <%= @farm.business_day %></p>
 		    			<hr>
-		    			<p class= "mt-5">入園料金<p>
+		    			<p class= "mt-5">入園料金 : <%= @farm.price %>円<p>
 		    			<hr>
-		    			<p class= "mt-5">ホームページのリンク</p>
+		    			<p class= "mt-5">ホームページのリンク : </p>
 		    			<hr>
 		    	</div>
 		    </div>
@@ -23,22 +23,23 @@
 		    <div class="row">
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">主な取扱品種 : </p><hr>
+		    			<!-- has_manyで指定してるので配列の中の複数のcherry情報が帰ってくるので[0]などの数字を指定する必要がある -->
+		    			<p class= "mt-5">主な取扱品種 : <%= @farm.cherries[0].cherry_name %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">大きさ : </p><hr>
+		    			<p class= "mt-5">大きさ : <%= @farm.cherries[0].size %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">甘味 : </p><hr>
+		    			<p class= "mt-5">甘味 : <%= @farm.cherries[0].taste %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">酸味 : </p><hr>
+		    			<p class= "mt-5">酸味 : <%= @farm.cherries[0].sour %></p><hr>
 		    		</div>
 		    	</div>
 		    </div>
@@ -47,22 +48,22 @@
 		    <div class="row">
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">主な取扱品種 : </p><hr>
+		    			<p class= "mt-5">主な取扱品種 : <%= @farm.cherries[1].cherry_name %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">大きさ : </p><hr>
+		    			<p class= "mt-5">大きさ : <%= @farm.cherries[1].size %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">甘味 : </p><hr>
+		    			<p class= "mt-5">甘味 : <%= @farm.cherries[1].taste %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">酸味 : </p><hr>
+		    			<p class= "mt-5">酸味 : <%= @farm.cherries[1].sour %></p><hr>
 		    		</div>
 		    	</div>
 		    </div>
@@ -70,15 +71,14 @@
 		    <div class="row">
 		    	<div class="col-12">
 		    		<p class= "text-center my-5">当園の特徴</p>
-		    		<hr class= "mt-5">
-		    		<hr class= "mt-5">
+		    			<%= @farm.feature %>
 		    		<hr class= "mt-5">
 		    	</div>
 		    </div>
 		    <div class="row">
 		    	<div class="col-12">
 		    		<p class= "text-center my-5">MAP</p>
-		    		<img src="assets/cherries1.jpg" height="400" width="700" class="rounded mx-auto d-block mb-5">
+		    		<%= attachment_image_tag @farm.farm_image, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:400×700" %>
 		    	</div>
 		    </div>
 	</div>

@@ -1,11 +1,8 @@
 <div class="container">
+  <%= form_for @farm, url: update_admin_farm_path do |f| %>
 	<div class="row">
-	  	<div class="col-11">
+	  	<div class="col-12">
 			<h1 class="text-center my-4">管理者farm編集</h1>
-			<p class="text-center my-4">※カテゴリーずつの編集を行ってください</p>
-		</div>
-		<div class="col-1">
-				<button type="button" class="btn btn-warning">戻る</button>
 		</div>
 	 </div>
 
@@ -18,7 +15,7 @@
 						<p class="text-center">農園名</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center">aaaaaaa</p>
+						<p class="text-center"><%= f.text_field :farm_name %></p>
 						<hr>
 					</div>
 				</div>
@@ -28,7 +25,7 @@
 						<p class="text-center">営業期間</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center">6月</p>
+						<p class="text-center"><%= f.text_field :business_day %></p>
 						<hr>
 					</div>
 				</div>
@@ -38,7 +35,7 @@
 						<p class="text-center">入園料金</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center">3,000円</p>
+						<p class="text-center"><%= f.text_field :price %>円</p>
 						<hr>
 					</div>
 				</div>
@@ -48,7 +45,7 @@
 						<p class="text-center">地域</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center">山梨県</p>
+						<p class="text-center"><%= f.text_field :area %></p>
 						<hr>
 					</div>
 				</div>
@@ -56,10 +53,9 @@
 				<div class="row">
 					<div class="col-4">
 						<p class="text-center">イメージ画像選択</p>
-						<button type="button" class="btn btn-primary">選択</button>
 					</div>
 					<div class="col-8">
-						<p class="text-center">aaaaaaa</p>
+						<p class="text-center"><%= f.attachment_field :farm_image, :size=>"80" %></p>
 						<hr>
 					</div>
 				</div>
@@ -70,79 +66,12 @@
 						<p class="text-center">農園の特徴</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center">美味しい</p>
+						<p class="text-center"><%= f.text_field :feature %></p>
 						<hr>
-						<button type="button" class="btn btn-primary">Farm情報更新</button>
-						<button type="button" class="btn btn-danger">削除</button>
-					</div>
-				</div>
-
-			<!-- User編集 -->
-			<h3 class="my-5">User</h3>
-				<div class="row">
-					<div class="col-4">
-						<p class="text-center">名前</p>
-					</div>
-					<div class="col-8">
-						<p class="text-center">白石麻衣</p>
-						<hr>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-4">
-						<p class="text-center">名前（カナ）</p>
-					</div>
-					<div class="col-8">
-						<p class="text-center">シライシマイ</p>
-						<hr>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-4">
-						<p class="text-center">郵便番号</p>
-					</div>
-					<div class="col-8">
-						<p class="text-center">〒111-1111</p>
-						<hr>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-4">
-						<p class="text-center">住所</p>
-					</div>
-					<div class="col-8">
-						<p class="text-center">東京都港区南青山</p>
-						<hr>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-4">
-						<p class="text-center">電話番号</p>
-					</div>
-					<div class="col-8">
-						<p class="text-center">090-1111-1111</p>
-						<hr>
-						<button type="button" class="btn btn-primary">User情報更新</button>
-						<button type="button" class="btn btn-danger">削除</button>
-					</div>
-				</div>
-
-			<h3 class="my-5">Cherry</h3>
-				<div class="row">
-					<div class="col-4">
-						<p class="text-center">取り扱い品種選択</p>
-					</div>
-					<div class="col-8">
-						<p class="text-center">プルダウン</p>
-						<hr>
-						<button type="button" class="btn btn-primary">Cherry情報更新</button>
-						<button type="button" class="btn btn-danger">削除</button>
+						<%= f.submit "更新", class: "btn btn-primary btn-block" %>
 					</div>
 				</div>
 		</div>
 	</div>
+  <% end %>
 </div>

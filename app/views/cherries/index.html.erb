@@ -19,7 +19,7 @@
           </div>
         <div class="col-3">
             <div style="height: 40px; width: 200px">
-              <%= button_to "品種情報追加", cherries_new_path(f.id), method: :get %>
+              <%= button_to "詳細情報", cherry_path(f.id), method: :get %>
             </div>
             <div style="height: 40px; width: 200px">
               <p>料金 : <%= f.price %>円</p>
@@ -31,6 +31,9 @@
                 <p>品種 : <%= cherry.cherry_name %></p>
               </div>
             <% end %>
+            <div style="height: 40px; width: 200px">
+              <%= button_to "品種情報追加", cherries_new_path(f.id), method: :get %>
+            </div>
         </div>
       </div>
       <hr>

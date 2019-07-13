@@ -1,51 +1,52 @@
  <div class="container">
     <h1 class="text-center my-5">新規登録（品種）</h1>
     <hr>
+    <%= form_for @cherry, url: admin_cherries_path do |cherry| %>
         <div class="row">
         	<div class="col-md-3">
             	<p class="text-center my-4">品種名</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">紅秀峰</p>
+                <p class="text-center my-4"><%= cherry.text_field :cherry_name, :size=>"80" %></p>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">粒の大きさ</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">大きい<p>
+                <p class="text-center my-4"><%= cherry.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %><p>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">甘み</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">強い</p>
+                <p class="text-center my-4"><%= cherry.select :taste, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %></p>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">酸味</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">少ない</p>
+                <p class="text-center my-4"><%= cherry.select :sour, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %></p>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">特徴</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">粒が大きく甘い</p>
+                <p class="text-center my-4"><%= cherry.text_area :content, :size=>"80×20" %></p>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">イメージ画像選択</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">ボタン</p>
+                
                 <hr>
             </div>
 
-        		<button type="button" class="btn btn-primary">登録</button>
-        		<button type="button" class="btn btn-danger">削除</button>
+        		<%= cherry.submit '登録' %>
         </div>
+    <% end %>
 </div>

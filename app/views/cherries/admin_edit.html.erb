@@ -1,4 +1,5 @@
 <div class="container">
+  <%= form_for [@farm, @cherry], url: update_admin_cherry_path do |f| %>
     <h1 class="text-center my-5">Cherry編集（品種）</h1>
     <hr>
         <div class="row">
@@ -6,7 +7,7 @@
                 <p class="text-center my-4">品種名</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4">紅秀峰</p>
+                <p class="text-center my-4"><%= f.text_field :cherry_name %><%= f.hidden_field :farm_id, :value => @farm.id %></p>
             </div>
 
             <div class="col-md-3">
@@ -48,4 +49,5 @@
                 <button type="button" class="btn btn-primary">更新</button>
                 <button type="button" class="btn btn-danger">削除</button>
         </div>
+  <% end %>
 </div>

@@ -11,6 +11,10 @@ class FarmsController < ApplicationController
   end
 
   def show
+    @farm = Farm.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    @farm_id = Farm.where(user_id: @user_id)
+
   end
 
   def new
@@ -40,18 +44,31 @@ class FarmsController < ApplicationController
   end
 
   def admin_index
+    @farms = Farm.all
+    @user = User.find_by(id: params[:id])
+    #親のfarmから子のCherryを紐づけている
+    @farm = Farm.where(use_id: @user_id)
+    # @cherries = Cherry.where(farm_id: @farm_id)
   end
 
   def admin_show
   end
 
   def admin_edit
+    @farm = Farm.find(params[:id])
   end
 
   def admin_update
+    farm = Farm.find(params[:id])
+    farm.update(farm_params)
+    redirect_to admin_farms_path
   end
 
   def admin_destroy
+    @farm = Farm.find(params[:id])
+    @farm.farm_delete_flag = 1
+    @farm.save
+    redirect_to admin_farms_path
   end
 
   def area_index

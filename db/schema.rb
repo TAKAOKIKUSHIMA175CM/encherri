@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_093831) do
+ActiveRecord::Schema.define(version: 2019_07_13_161430) do
 
   create_table "areas", force: :cascade do |t|
     t.string "todoufuken"
@@ -21,12 +21,13 @@ ActiveRecord::Schema.define(version: 2019_07_10_093831) do
   create_table "cherries", force: :cascade do |t|
     t.integer "farm_id"
     t.string "cherry_name"
-    t.string "taste"
-    t.string "sour"
     t.string "cherry_image_id"
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "taste"
+    t.integer "sour"
+    t.text "content"
   end
 
   create_table "farms", force: :cascade do |t|
