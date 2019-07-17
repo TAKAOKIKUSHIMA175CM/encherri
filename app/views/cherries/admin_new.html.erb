@@ -8,6 +8,7 @@
             </div>
             <div class="col-md-9">
                 <p class="text-center my-4"><%= cherry.text_field :cherry_name, :size=>"80" %></p>
+                                            <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
             <div class="col-md-3">
@@ -15,13 +16,15 @@
             </div>
             <div class="col-md-9">
                 <p class="text-center my-4"><%= cherry.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %><p>
+                                            <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">甘み</p>
             </div>
             <div class="col-md-9">
-                <p class="text-center my-4"><%= cherry.select :taste, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %></p>
+                <p class="text-center my-4"><%= cherry.select :taste, [["強い", "1"], ["普通", "2"], ["控えめ", "1"]] %></p>
+                                            <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
             <div class="col-md-3">
@@ -29,6 +32,7 @@
             </div>
             <div class="col-md-9">
                 <p class="text-center my-4"><%= cherry.select :sour, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %></p>
+                                            <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
             <div class="col-md-3">
@@ -36,13 +40,15 @@
             </div>
             <div class="col-md-9">
                 <p class="text-center my-4"><%= cherry.text_area :content, :size=>"80×20" %></p>
+                                            <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
             <div class="col-md-3">
             	<p class="text-center my-4">イメージ画像選択</p>
             </div>
             <div class="col-md-9">
-                
+                <%= cherry.attachment_field :cherry_image, :size=>"80" %>
+                <%= cherry.hidden_field :cherry, :value => @cherry.id %>
                 <hr>
             </div>
 

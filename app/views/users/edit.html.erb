@@ -3,9 +3,9 @@
 		<div class="col-12">
 			<div class = "row">
 				<h3 class="my-5">User</h3>
+				<%= form_for @user, url: user_path(@user.id) do |f| %>
 					<div class="row">
 						<div class="col-4">
-				<%= form_for @user, url: new_farm_path do |f| %>
 							<p class="text-center">名前</p>
 						</div>
 						<div class="col-8">
@@ -36,7 +36,7 @@
 
 					<div class="row">
 						<div class="col-4">
-							<p class="text-center">住所</p>
+							<p class="text-center">農園住所</p>
 						</div>
 						<div class="col-8">
 							<%= f.text_field :address, :size=>"80" %>
@@ -51,8 +51,7 @@
 						<div class="col-8">
 							<%= f.text_field :phone_number, :size=>"80" %>
 							<hr>
-							<%= f.submit 'User情報更新' %>
-							<%= f.submit '削除' %>
+							<%= f.submit '情報更新', class: 'btn btn-info' %>
 						</div>
 					</div>
 				<% end %>

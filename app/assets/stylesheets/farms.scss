@@ -61,3 +61,21 @@
 	background-position: center;
   	background-size: cover;
 }
+
+.about-visual {
+	width: 100%;
+	height: 100%;
+	background: image-url('cherries.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.about-visual-content {
+	width: 100%;
+	height: 300px;
+	text-align: center;
+	padding-top: 110px;
+}
+.main-visual-text {
+	color: #fff;
+}
+

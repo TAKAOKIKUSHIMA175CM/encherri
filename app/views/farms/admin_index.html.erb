@@ -3,7 +3,7 @@
 	      <% @farms.each do |farm| %>
 	      <div class="row">
 	        <div class="col-3">
-	            <img src="assets/cherries1.jpg" height="120" width="150">
+	            <%= attachment_image_tag farm, :farm_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
 	        </div>
 	       	<div class="col-4">
 	            <div style="height: 40px; width: 300px">
@@ -32,10 +32,10 @@
 	            <% end %>
 	        </div>
 	        <div class="col-2">
-	        	<%= link_to "cherry編集", edit_admin_cherry_path(farm.id), class:"btn btn-success" %>
+	        	<%#= link_to "cherry編集", edit_admin_cherry_path(farm.cherry.id), class:"btn btn-success" %>
 	        </div>
 	        <div class="col-1">
-	        	 <%= link_to "削除", destroy_admin_farm_path(farm.id), method: :delete, class:"btn btn-danger",data: {confirm:"削除しますか？"} %>
+	        	<%= link_to "削除", destroy_admin_farm_path(farm.id), method: :delete, class:"btn btn-danger",data: {confirm:"削除しますか？"} %>
 	        </div>
 	      </div>
 	      <hr>

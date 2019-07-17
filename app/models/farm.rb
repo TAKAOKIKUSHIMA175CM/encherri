@@ -2,8 +2,9 @@ class Farm < ApplicationRecord
 
 	belongs_to :user, optional: true
 	has_many :cherries, dependent: :destroy
+	belongs_to :area, optional: true
 
 	attachment :farm_image
-	attachment :map
+	attachment :map_image
 
 end

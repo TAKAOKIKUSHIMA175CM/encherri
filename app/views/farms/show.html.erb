@@ -2,7 +2,10 @@
   	<div class="row">
 		<div class="col-12">
 		  <h1 class="text-center my-5"><%= @farm.farm_name %></h1>
-		    <div class="row">
+		  	<!-- if user_sign_in?でログインしている時だけボタンを表示する.さらに、ファームの持ってるuser_idとカレントユーザーidが一緒なら表示する -->
+		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
+		  	<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
+		  		    <div class="row">
 		    	<div class="col-4 mt-5">
 		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
 		    	</div>
@@ -15,31 +18,33 @@
 		    			<hr>
 		    			<p class= "mt-5">入園料金 : <%= @farm.price %>円<p>
 		    			<hr>
-		    			<p class= "mt-5">ホームページのリンク : </p>
+		    			<p class= "mt-5">ホームページのリンク :<%= link_to "農園のホームページへ", @farm.home_page %></p>
 		    			<hr>
 		    	</div>
 		    </div>
 
+		    <!-- farmにcherryの情報を持っていなくてもeach文で回すことで解消される。配列に情報が入っていなくてもeach文が回ってnilになってブレイクになることに -->
+		    <% @farm.cherries.each do |cherry|%>
+
 		    <div class="row">
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<!-- has_manyで指定してるので配列の中の複数のcherry情報が帰ってくるので[0]などの数字を指定する必要がある -->
-		    			<p class= "mt-5">主な取扱品種 : <%= @farm.cherries[0].cherry_name %></p><hr>
+		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">大きさ : <%= @farm.cherries[0].size %></p><hr>
+		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">甘味 : <%= @farm.cherries[0].taste %></p><hr>
+		    			<p class= "mt-5">甘味 : <%= cherry.taste %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">酸味 : <%= @farm.cherries[0].sour %></p><hr>
+		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
 		    		</div>
 		    	</div>
 		    </div>
@@ -48,25 +53,27 @@
 		    <div class="row">
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">主な取扱品種 : <%= @farm.cherries[1].cherry_name %></p><hr>
+		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">大きさ : <%= @farm.cherries[1].size %></p><hr>
+		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">甘味 : <%= @farm.cherries[1].taste %></p><hr>
+		    			<p class= "mt-5">甘味 : <%= cherry.taste %></p><hr>
 		    		</div>
 		    	</div>
 		    	<div class="col-3">
 		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">酸味 : <%= @farm.cherries[1].sour %></p><hr>
+		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
 		    		</div>
 		    	</div>
 		    </div>
+
+		<% end %>
 
 		    <div class="row">
 		    	<div class="col-12">
@@ -78,7 +85,8 @@
 		    <div class="row">
 		    	<div class="col-12">
 		    		<p class= "text-center my-5">MAP</p>
-		    		<%= attachment_image_tag @farm.farm_image, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:400×700" %>
+		    		<!-- 画像の場合はmodelに記載を忘れないこと -->
+		    		<%=  attachment_image_tag @farm, :map_image, format: "jpeg", fallback: "no_image.jpg", size: "400×700" %>
 		    	</div>
 		    </div>
 	</div>

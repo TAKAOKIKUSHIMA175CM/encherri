@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
+	before_action :ransack_description
 
 	def after_sign_in_path_for(resourse)
 		if current_user.admin_flag == 1
@@ -40,9 +41,16 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def ransack_description
+		@search = Farm.ransack(params[:q])
+    	@farms = @search.result
+    end
+
 	def search
+		# @search = Farm.ransack(params[:q])
+		# @farms = @search.result
 		# @farm = Farm.new
-		# render "index"
+		# render "farms_path"
 	end
 
 
@@ -51,5 +59,9 @@ class ApplicationController < ActionController::Base
 		devise_parameter_sanitizer.permit(:sign_up,keys:[:name_kanji, :name_kana, :phone_number, :post_code, :address, ])
 		devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
 	end
+
+  def search_params
+    params.require(:farm).permit(:farm_name)
+  end
 
 end

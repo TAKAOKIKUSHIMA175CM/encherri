@@ -1,6 +1,6 @@
             <!-- cherry情報 -->
     <div class="container">
-            <h3 class="my-5">Cherry</h3>
+            <h3 class=text-center "my-5">Cherry</h3>
                 <div class="row">
                     <div class="col-4">
                     <%= form_for [@farm, @cherry], url: cherries_path do |f| %>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-8">
                         <!-- プルダウンの書き方。今回はチャートを作るのでカラムをintegerにしている -->
-                        <%= f.select :taste, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %>
+                        <%= f.select :taste, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
@@ -38,11 +38,31 @@
                         <p>酸味</p>
                     </div>
                     <div class="col-8">
-                        <%= f.select :sour, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %>
+                        <%= f.select :sour, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
-                        <%= f.submit '登録' %>
+
+                    <div class="col-4">
+                        <p>特徴</p>
+                    </div>
+                    <div class="col-8">
+                        <%= f.text_area :content, :size=>"80" %>
+                        <%= f.hidden_field :farm_id, :value => @farm.id %>
+                        <hr>
+                    </div>
+
+                     <div class="col-4">
+                        <p>イメージ画像</p>
+                    </div>
+                    <div class="col-8">
+                        <%= f.attachment_field :cherry_image, :size=>"80" %>
+                        <%= f.hidden_field :farm_id, :value => @farm.id %>
+                        <hr>
+                    </div>
+                    <div class="text-center">
+                        <%= f.submit '登録', class: 'btn btn-info' %>
+                    </div>
                     <% end %>
                 </div>
     </div>

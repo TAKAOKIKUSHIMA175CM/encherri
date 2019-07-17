@@ -55,7 +55,8 @@
 						<p class="text-center">イメージ画像選択</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center"><%= f.attachment_field :farm_image, :size=>"80" %></p>
+						<!-- 編集の場合はサイズは指定せず、以下の書き方で書く -->
+						<p class="text-center"><%= f.attachment_field :farm_image %></p>
 						<hr>
 					</div>
 				</div>

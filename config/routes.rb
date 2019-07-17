@@ -5,10 +5,13 @@ devise_for :users
 
     root 'farms#index'
 
-  resources :users, only: [:show, :update, :destroy]
-  resources :farms
+  resources :users, only: [:edit, :update, :destroy]
+  resources :farms do
+    get '/cherries' => 'cherries#cherries_breed'
+  end
   resources :cherries, only: [:index, :show, :create, :edit, :update, :destroy]
 
+  # get "farms/:area" => "farms#area"
   get "admin/" => "users#admin_index"
   get "admin/users/:id/edit" => "users#admin_edit", as: "edit_admin_user"
   patch "admin/users/:id" => "users#admin_update", as: "update_admin_user"
@@ -23,7 +26,8 @@ devise_for :users
   patch "admin/farms/:id" => "farms#admin_update", as: "update_admin_farm"
   delete "admin/farms/:id" => "farms#admin_destroy", as: "destroy_admin_farm"
   get "area" => "farms#area_index", as: "area"
-  post "area/search" => "farm#area_search"
+  get "area/search/:id" => "farms#area_search", as: "area_search"
+  get "my/farms/" => "farms#my_farm", as: "my_farm"
 
   get "cherries/new/:farm_id" => "cherries#new", as: "cherries_new"
   get "admin/cherries/" => "cherries#admin_index"
@@ -85,10 +89,11 @@ end
                           DELETE /users(.:format)                                                                         devise/registrations#destroy
                           POST   /users(.:format)                                                                         devise/registrations#create
                      root GET    /                                                                                        farms#index
-                     user GET    /users/:id(.:format)                                                                     users#show
-                          PATCH  /users/:id(.:format)                                                                     users#update
+                edit_user GET    /users/:id/edit(.:format)                                                                users#edit
+                     user PATCH  /users/:id(.:format)                                                                     users#update
                           PUT    /users/:id(.:format)                                                                     users#update
                           DELETE /users/:id(.:format)                                                                     users#destroy
+            farm_cherries GET    /farms/:farm_id/cherries(.:format)                                                       cherries#cherries_breed
                     farms GET    /farms(.:format)                                                                         farms#index
                           POST   /farms(.:format)                                                                         farms#create
                  new_farm GET    /farms/new(.:format)                                                                     farms#new
@@ -118,9 +123,10 @@ end
        destroy_admin_farm DELETE /admin/farms/:id(.:format)                                                               farms#admin_destroy
                      area GET    /area(.:format)                                                                          farms#area_index
               area_search POST   /area/search(.:format)                                                                   farm#area_search
+                  my_farm GET    /my/farms(.:format)                                                                      farms#my_farm
              cherries_new GET    /cherries/new/:farm_id(.:format)                                                         cherries#new
            admin_cherries GET    /admin/cherries(.:format)                                                                cherries#admin_index
-        admin_cherris_new GET    /admin/cherris/new(.:format)                                                             cherreis#admin_new
+       admin_cherries_new GET    /admin/cherries/new(.:format)                                                            cherries#admin_new
       create_admin_cherry POST   /admin/cherries(.:format)                                                                cherries#admin_create
         edit_admin_cherry GET    /admin/cherries/:id/edit(.:format)                                                       cherries#admin_edit
       update_admin_cherry PATCH  /admin/cherries/:id(.:format)                                                            cherries#admin_update

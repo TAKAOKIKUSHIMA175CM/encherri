@@ -23,7 +23,7 @@
               <!-- サイト管理人がログインした場合 -->
               <% if current_user.admin_flag == 1 %>
                   <li class="nav-list-item">
-                    <%= link_to 'farm', admin_farms_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'farm', farms_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <%= link_to 'breed', cherries_path, class: "header-title nav-item nav-link text-dark" %>
@@ -47,8 +47,14 @@
                     <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <input type="search" name="search" placeholder="農園名を入力">
-                  <input type="submit" name="submit" value="search">
+
+                    <%#= form_for @farm, url:seach_path do |f| %>
+                      <%#= f.text_field :farm_name %>
+                    <%= search_form_for @search do |f| %>
+                      <%= f.label :farm_name_cont, "農園名を含む" %>
+                      <%= f.search_field :farm_name_cont %>
+                      <%= f.submit "検索" %>
+                    <% end %>
                   </li>
 
               <!-- 農場管理人がログインした場合 -->
@@ -57,7 +63,7 @@
                     <%= link_to 'farm', farms_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'breed', admin_cherries_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'breed', cherries_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <%= link_to 'area', area_path, class: "header-title nav-item nav-link text-dark" %>
@@ -66,10 +72,13 @@
                     <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
+                    <%= link_to 'user edit', edit_user_path(current_user.id), class: "header-title nav-item nav-link text-dark" %>
+                  </li>
+                  <li class="nav-list-item">
                     <%= link_to 'new farm', new_farm_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'my farm', cherries_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'my farm', my_farm_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
                     <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
@@ -77,8 +86,12 @@
                   <li class="nav-list-item">
                     <%= link_to 'sign out', user_registration_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
-                  
-                  <input type="submit" name="submit" value="search">
+                  <li class="nav-list-item">
+                    <%= search_form_for @search do |f| %>
+                      <%= f.label :farm_name_cont, "農園名を含む" %>
+                      <%= f.search_field :farm_name_cont %>
+                      <%= f.submit "検索" %>
+                    <% end %>
                   </li>
 
               <% end %>
@@ -104,8 +117,11 @@
             <%= link_to 'sign up', new_user_registration_path, class: "header-title nav-item nav-link text-dark" %>
           </li>
           <li class="nav-list-item">
-            <input type="search" name="search" placeholder="農園名を入力">
-          <input type="submit" name="submit" value="search">
+              <%= search_form_for @search do |f| %>
+                <%= f.label :farm_name_cont, "農園名を含む" %>
+                <%= f.search_field :farm_name_cont %>
+                <%= f.submit "検索" %>
+              <% end %>
           </li>
           <% end %>
         </ul>

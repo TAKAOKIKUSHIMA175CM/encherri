@@ -10,10 +10,16 @@ class UsersController < ApplicationController
   end
 
 
-  def show
+  def edit
+    @user = current_user
+    @search = Farm.ransack(params[:q])
+    @farms = @search.result
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to farms_path
   end
 
   def destroy

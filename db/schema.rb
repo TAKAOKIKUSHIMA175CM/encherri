@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_161430) do
+ActiveRecord::Schema.define(version: 2019_07_17_060027) do
 
   create_table "areas", force: :cascade do |t|
     t.string "todoufuken"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2019_07_13_161430) do
     t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "taste"
-    t.integer "sour"
+    t.string "taste"
+    t.string "sour"
     t.text "content"
   end
 
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_07_13_161430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "map_image_id"
+    t.string "home_page"
+    t.integer "area_id"
   end
 
   create_table "users", force: :cascade do |t|
