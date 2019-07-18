@@ -16,9 +16,14 @@ class CherriesController < ApplicationController
   end
 
   def create
-    cherry = Cherry.new(cherry_params)
-    cherry.save
-    redirect_to cherries_path
+    # renderを使う場合は変数に＠を使はないとエラーになる
+    @cherry = Cherry.new(cherry_params)
+    if @cherry.save
+      redirect_to cherries_path
+    else
+      render "admin_new"
+    end
+
   end
 
   def show
@@ -45,7 +50,7 @@ class CherriesController < ApplicationController
   end
 
   def admin_index
-    @cherries = Cherry.all
+    @cherries = Cherry.all.order(:id).reverse_order
   end
 
   def admin_new
@@ -53,9 +58,12 @@ class CherriesController < ApplicationController
   end
 
   def admin_create
-    cherry = Cherry.new(cherry_params)
-    cherry.save
-    redirect_to admin_cherries_path
+    @cherry = Cherry.new(cherry_params)
+    if @cherry.save
+      redirect_to admin_cherries_path
+    else
+      render "admin_new"
+    end
   end
 
   def admin_show

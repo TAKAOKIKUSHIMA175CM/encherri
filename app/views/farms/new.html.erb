@@ -68,6 +68,10 @@
 					</div>
 					<div class="col-8">
 						<%= f.attachment_field :farm_image, :size=>"80" %>
+						<P>※地図画像の貼り方は以下の動画を参考にしてください</P><br>
+						<p>※グーグルマップのページに行っていただき(shift+command+5)を押すことで<br>
+						スクリーンショットができるようになります</p>
+						<%= video_tag 'map_move.mp4', muted: true, autoplay: true, loop: true, size: "600x500" %>
 						<hr>
 					</div>
 				</div>

@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :farm, dependent: :destroy
+
+  accepts_nested_attributes_for :farm
+
+  validates :name_kanji, :post_code, :phone_number, presence: true
+  validates :name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\Z/ }
 end

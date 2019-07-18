@@ -35,10 +35,10 @@ class FarmsController < ApplicationController
   end
 
   def create
-    farm = Farm.new(farm_params)
+    @farm = Farm.new(farm_params)
     #ファームモデルのuser_idがデフォルトでは入らないのでidが入るように指定してあげる
-    farm.user_id = current_user.id
-    if farm.save
+    @farm.user_id = current_user.id
+    if @farm.save
     redirect_to farms_path
     else
     render "new"
@@ -52,9 +52,12 @@ class FarmsController < ApplicationController
   end
 
   def update
-    farm = Farm.find(params[:id])
-    farm.update(farm_params)
-    redirect_to cherry_path(farm.id)
+    @farm = Farm.find(params[:id])
+    if @farm.update(farm_params)
+      redirect_to cherry_path(@farm.id)
+    else
+      render "edit"
+    end
   end
 
   def destroy
@@ -84,9 +87,12 @@ class FarmsController < ApplicationController
   end
 
   def admin_update
-    farm = Farm.find(params[:id])
-    farm.update(farm_params)
-    redirect_to admin_farms_path
+    @farm = Farm.find(params[:id])
+    if @farm.update(farm_params)
+      redirect_to admin_farms_path
+    else
+      render "admin_edit"
+    end
   end
 
   def admin_destroy

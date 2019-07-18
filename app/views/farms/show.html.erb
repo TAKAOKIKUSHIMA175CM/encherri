@@ -5,7 +5,7 @@
 		  	<!-- if user_sign_in?でログインしている時だけボタンを表示する.さらに、ファームの持ってるuser_idとカレントユーザーidが一緒なら表示する -->
 		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
 		  	<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
-		  		    <div class="row">
+		  	<div class="row">
 		    	<div class="col-4 mt-5">
 		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
 		    	</div>
@@ -18,8 +18,11 @@
 		    			<hr>
 		    			<p class= "mt-5">入園料金 : <%= @farm.price %>円<p>
 		    			<hr>
-		    			<p class= "mt-5">ホームページのリンク :<%= link_to "農園のホームページへ", @farm.home_page %></p>
+		    		<% if @farm.home_page.blank? %>
+		    		<%else%>
+		    			<a href="<%= @farm.home_page %>" target="_blank">この農園のホームページへ</a>
 		    			<hr>
+		    		<% end %>
 		    	</div>
 		    </div>
 
@@ -84,10 +87,13 @@
 		    </div>
 		    <div class="row">
 		    	<div class="col-12">
-		    		<p class= "text-center my-5">MAP</p>
-		    		<!-- 画像の場合はmodelに記載を忘れないこと -->
-		    		<%=  attachment_image_tag @farm, :map_image, format: "jpeg", fallback: "no_image.jpg", size: "400×700" %>
+		    		<p class="text-center my-5">MAP</p>
+		    		<div class="d-flex justify-content-center">
+		    			<!-- 画像の場合はmodelに記載を忘れないこと -->
+		    			<%=  attachment_image_tag @farm, :map_image, :fill, 837, 500, format: "jpeg", fallback: "no_image.jpg", size: '100x500' %>
+		    		</div>
 		    	</div>
 		    </div>
+		</div>
 	</div>
 </div>

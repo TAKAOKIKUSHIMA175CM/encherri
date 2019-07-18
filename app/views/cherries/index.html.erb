@@ -6,7 +6,9 @@
         <div class="row">
           <div class="col-4 mt-5">
               <%= attachment_image_tag f, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
-              <p style="margin-left :100px my-3"><%= f.cherry_name %></p>
+              <div class="d-flex justify-content-center">
+                <p class="my-3" style="margin-right: 100px;"><%= f.cherry_name %></p>
+              </div>
           </div>
           <div class="col-8 mt-5">
             <div style="height: 130px; width: 500px">

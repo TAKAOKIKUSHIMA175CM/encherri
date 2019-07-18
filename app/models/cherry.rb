@@ -4,6 +4,8 @@ class Cherry < ApplicationRecord
 
 	attachment :cherry_image
 
+	validates :cherry_name, presence: true
+
 	def cherry_taste_convert(number)
 		if number == 1
 			return "控えめ"

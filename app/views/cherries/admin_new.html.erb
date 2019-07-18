@@ -51,8 +51,11 @@
                 <%= cherry.hidden_field :cherry, :value => @cherry.id %>
                 <hr>
             </div>
-
-        		<%= cherry.submit '登録' %>
+                <div class="col-4 offset-4">
+                    <div class="d-flex justify-content-center">
+        		      <%= cherry.submit '登録', class: 'btn btn-info' %>
+                    </div>
+                </div>
         </div>
     <% end %>
 </div>

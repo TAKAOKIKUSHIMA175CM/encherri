@@ -45,7 +45,7 @@
 						<p class="text-center">地域</p>
 					</div>
 					<div class="col-8">
-						<p class="text-center"><%= f.text_field :area %></p>
+						<p class="text-center"><%= f.collection_select :area_id, Area.all, :id, :todoufuken %></p>
 						<hr>
 					</div>
 				</div>
