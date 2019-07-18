@@ -35,7 +35,7 @@
 						<p class="text-center">入園料金</p>
 					</div>
 					<div class="col-8">
-						<p><%= f.text_field :price, :size=>"77" %>円</p>
+						<p><%= f.text_field :price, :size=>"20" %>円</p>
 						<hr>
 					</div>
 				</div>
@@ -68,10 +68,6 @@
 					</div>
 					<div class="col-8">
 						<%= f.attachment_field :farm_image, :size=>"80" %>
-						<P>※地図画像の貼り方は以下の動画を参考にしてください</P><br>
-						<p>※グーグルマップのページに行っていただき(shift+command+5)を押すことで<br>
-						スクリーンショットができるようになります</p>
-						<%= video_tag 'map_move.mp4', muted: true, autoplay: true, loop: true, size: "600x500" %>
 						<hr>
 					</div>
 				</div>
@@ -94,6 +90,13 @@
 					<div class="col-8">
 						<%= f.attachment_field :map_image, :size=>"80" %>
 						<hr>
+							<P>※地図画像の貼り方は以下の動画を参考にしてください</P><br>
+							<p>※Macの場合:グーグルマップのページに行っていただき(shift+command+5)を押すことで<br>
+							スクリーンショットができるようになります</p>
+							<p>※Windowsの場合:①キーボードの [Print Screen] を押します、②スタートボタンを押します、③全てのプログラムを選択、
+							④アクセサリを押し、ペイントを選択、⑤名前を付けて保存(この際にファイルの拡張子をjpgにしてください)、⑥保存を押します<br>
+							</p>
+						<%= video_tag 'map_move.mp4', muted: true, autoplay: true, loop: true, size: "600x500" %>
 						<%= f.submit 'Farm情報登録', class: 'btn btn-info' %>
 					</div>
 				</div>

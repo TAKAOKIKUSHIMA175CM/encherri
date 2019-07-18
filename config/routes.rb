@@ -31,6 +31,7 @@ devise_for :users
 
   get "cherries/new/:farm_id" => "cherries#new", as: "cherries_new"
   get "admin/cherries/" => "cherries#admin_index"
+  get "admin/cherries/:id" => "cherries#admin_show", as: "show_admin_cherry"
   get "admin/cherries/new" => "cherries#admin_new"
   post "admin/cherries/" => "cherries#admin_create", as: "create_admin_cherry"
   get "admin/cherries/:id/edit" => "cherries#admin_edit", as: "edit_admin_cherry"
@@ -122,15 +123,23 @@ end
         update_admin_farm PATCH  /admin/farms/:id(.:format)                                                               farms#admin_update
        destroy_admin_farm DELETE /admin/farms/:id(.:format)                                                               farms#admin_destroy
                      area GET    /area(.:format)                                                                          farms#area_index
-              area_search POST   /area/search(.:format)                                                                   farm#area_search
+              area_search GET    /area/search/:id(.:format)                                                               farms#area_search
                   my_farm GET    /my/farms(.:format)                                                                      farms#my_farm
              cherries_new GET    /cherries/new/:farm_id(.:format)                                                         cherries#new
            admin_cherries GET    /admin/cherries(.:format)                                                                cherries#admin_index
+        show_admin_cherry GET    /admin/cherries/:id(.:format)                                                            cherries#admin_show
        admin_cherries_new GET    /admin/cherries/new(.:format)                                                            cherries#admin_new
       create_admin_cherry POST   /admin/cherries(.:format)                                                                cherries#admin_create
         edit_admin_cherry GET    /admin/cherries/:id/edit(.:format)                                                       cherries#admin_edit
       update_admin_cherry PATCH  /admin/cherries/:id(.:format)                                                            cherries#admin_update
      destroy_admin_cherry DELETE /admin/cherries/:id(.:format)                                                            cherries#admin_destroy
+               refile_app        /attachments                                                                             #<Refile::App app_file="/home/vagrant/.bundle/ruby/2.5.0/refile-46b4178654e6/lib/refile/app.rb">
+       rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+       rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+
 
 
 

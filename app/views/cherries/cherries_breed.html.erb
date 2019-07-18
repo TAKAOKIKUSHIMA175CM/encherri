@@ -1,42 +1,49 @@
 <div class="container">
-    <div class="row">
-    <div class="col-12">
-      <h3 class="text-center my-5">My breed</h3>
-      <% @cherries.each do |f| %>
-        <div class="row">
-          <div class="col-4 mt-5">
-              <%= attachment_image_tag f, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
-              <p style="margin-left :100px my-3"><%= f.cherry_name %></p>
-          </div>
-          <div class="col-8 mt-5">
-            <div style="height: 130px; width: 500px">
-              <p><%= f.content %></p>
-            </div>
-              <div class="row">
-                <div class="col-3">
-                  <div style="height: 40px; width: 150px">
-                    <p>大きさ : <%= f.size %></p><hr>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="height: 40px; width: 150px">
-                    <p>甘味 : <%= f.taste %></p><hr>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="height: 40px; width: 150px">
-                    <p>酸味 : <%= f.sour %></p><hr>
-                  </div>
-                </div>
-                <div class="col-3">
-		    		<div style="height: 40px; width: 100px">
-		    			<%= link_to "削除", cherry_path(f.id), method: :delete, class:"btn btn-danger",data: {confirm:"削除しますか？"} %>
-		    		</div>
-                </div>
-              </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  	<div class="row">
+    	<div class="col-12">
+      	<h3 class="text-center my-5">My breed</h3>
+	      	<% @cherries.each do |cherry| %>
+		        <div class="row">
+			        <div class="col-4 mt-5">
+			            <%= attachment_image_tag cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
+			            <p style="margin-left :100px", class="my-3"><%= cherry.cherry_name %></p>
+			        </div>
+			        <div class="col-8 mt-5">
+			            <div style="height: 130px; width: 500px">
+			            	<div class="row">
+			            		<div class="col-11">
+			                		<p><%= cherry.content %></p>
+			                	</div>
+			                	<div class="col-1">
+			                		<%= link_to "Cherry編集", edit_admin_cherry_path(cherry.id), class: "btn btn-info" %>
+			                	</div>
+			                </div>
+			            </div>
+			                <div class="row">
+				                <div class="col-3">
+				                    <div style="height: 40px; width: 150px">
+				                      <p>大きさ : <%= cherry.size %></p><hr>
+				                    </div>
+				                </div>
+				                <div class="col-3">
+				                    <div style="height: 40px; width: 150px">
+				                      <p>甘味 : <%= cherry.taste %></p><hr>
+				                    </div>
+				                </div>
+				                <div class="col-3">
+				                    <div style="height: 40px; width: 150px">
+				                    	<p>酸味 : <%= cherry.sour %></p><hr>
+				                    </div>
+				                </div>
+				                <div class="col-3">
+						    		<div style="height: 40px; width: 100px">
+						    			<%= link_to "削除", cherry_path(cherry.id), method: :delete, class: "btn btn-danger",data: {confirm:"削除しますか？"} %>
+						    		</div>
+					    		</div>
+			                </div>
+			        </div>
+		        </div>
+	      	<% end %>
+    	</div>
+  	</div>
 </div>

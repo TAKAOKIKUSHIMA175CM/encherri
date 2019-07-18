@@ -72,7 +72,7 @@ class FarmsController < ApplicationController
   end
 
   def admin_index
-    @farms = Farm.all
+    @farms = Farm.all.order(:id).reverse_order
     @user = User.find_by(id: params[:id])
     #親のfarmから子のCherryを紐づけている
     @farm = Farm.where(use_id: @user_id)

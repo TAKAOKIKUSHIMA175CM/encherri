@@ -33,7 +33,7 @@ class CherriesController < ApplicationController
   end
 
   def edit
-    @farm = Farm
+    @farm = Farm.find(params[:id])
     @cherries = Cherry.where(farm_id: params.id)
     #@user = @cherry.farm.user
     #@farm = @cherry.farm 
@@ -50,7 +50,7 @@ class CherriesController < ApplicationController
   end
 
   def admin_index
-    @cherries = Cherry.all.order(:id).reverse_order
+    @cherries = Cherry.all.reverse_order
   end
 
   def admin_new
@@ -67,6 +67,8 @@ class CherriesController < ApplicationController
   end
 
   def admin_show
+    @cherry = Cherry.find(params[:id])
+    @farm = @cherry.farm
   end
 
   def admin_edit
@@ -76,11 +78,11 @@ class CherriesController < ApplicationController
   end
 
   def admin_update
-    cherry = Cherry.find(params[:id])
-    user = cherry.farm.user
-    farm = cherry.farm
-    cherry.save
-    redirect_to "/admin/cherries"
+    @cherry = Cherry.find(params[:id])
+    @user = @cherry.farm.user
+    @farm = @cherry.farm
+    @cherry.update(cherry_params)
+    redirect_to cherries_path
   end
 
   def admin_destroy

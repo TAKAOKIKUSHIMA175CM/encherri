@@ -1,0 +1,25 @@
+<div class="container">
+  	<div class="row">
+		<div class="col-12">
+		  <h1 class="text-center my-5"><%= @cherry.cherry_name %></h1>
+		  	<div class="row">
+		    	<div class="col-4 mt-5">
+		    		<%= attachment_image_tag @cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "300x200" %>
+		    		<div class="text-center mt-5">
+		  				<%= link_to "Cherry編集", edit_admin_cherry_path(@cherry.id), class: 'btn btn-info' %>
+		  			</div>
+		    	</div>
+		    	<div class="col-8">
+		    			<p class= "mt-5">大きさ : <%= @cherry.size %></p>
+		    			<hr>
+		    			<p class= "mt-5">甘味 : <%= @cherry.taste %></p>
+		    			<hr>
+		    			<p class= "mt-5">酸味 : <%= @cherry.sour %></p>
+		    			<hr>
+		    			<p class= "mt-5">品種の特徴 : <%= @cherry.content %></p>
+		    			<hr>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>
