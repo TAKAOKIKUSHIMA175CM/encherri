@@ -1,55 +1,99 @@
-<h2>Sign up</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center">
+          <div class="rounded">
+            <div class="form-header text-center">
+              <div class="type-textbound">
+                <h3 class="anime">Sign up</h3>
+              </div>
+            </div>
+              <div class="form-body">
+                <div class="anime">
+                <div class="card"  style= "width: 100%;">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <table class="table table-hover table-striped">
+                      <colgroup span="1" width="40%"></colgroup>
+                      <colgroup span="1" width="60%"></colgroup>
 
+                        <thead></thead>
 
-   <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name_kanji, autofocus: true, autocomplete: "name_kanji" %>
+                        <tbody>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :名前フルネーム %><br /></td>
+                                <td><%= f.text_field :name_kanji, autofocus: true, autocomplete: "name_kanji" %></td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :名前カタカナ %><br /></td>
+                                <td><%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana" %></td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :電話番号 %><br /></td>
+                                <td><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %></td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :郵便番号 %><br /></td>
+                                <td><%= f.text_field :post_code, autofocus: true, autocomplete: "post_code" %></td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :農園住所 %><br /></td>
+                                <td><%= f.text_field :address, autofocus: true, autocomplete: "address" %></td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :email %><br /></td>
+                                <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+                              <div class="field">
+                                <td><%= f.label :パスワード %><br>
+                                <% if @minimum_password_length %>
+                                <em>(<%= @minimum_password_length %> 桁の数字)</em>
+                                <% end %><br /></td>
+                                <td><%= f.password_field :password, autocomplete: "new-password", :size => "25*25" %><td>
+                              </div>
+                            </tr>
+
+                            <tr align="center">
+
+                              <div class="field">
+                                <td><%= f.label :パスワード確認 %><br /></td>
+                                <td><%= f.password_field :password_confirmation, autocomplete: "new-password", :size => "25*25" %></td>
+                              </div>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                          <div class="actions">
+                            <%= f.submit "登録", class: "anime_test btn btn-success btn-block" %>
+                          </div>
+                  <% end %>
+                          <%= render "devise/shared/links" %>
+                </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-   <div class="field">
-    <%= f.label :名前（カナ） %><br />
-    <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana" %>
-  </div>
-
-   <div class="field">
-    <%= f.label :電話番号 %><br />
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-  </div>
-
-   <div class="field">
-    <%= f.label :郵便番号 %><br />
-    <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code" %>
-  </div>
-
-   <div class="field">
-    <%= f.label :住所 %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
