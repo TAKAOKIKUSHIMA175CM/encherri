@@ -73,14 +73,10 @@ class CherriesController < ApplicationController
 
   def admin_edit
     @cherry = Cherry.find(params[:id])
-    @user = @cherry.farm.user #User.find_by(id: params[:id])
-    @farm = @cherry.farm #Farm.find_by(user_id: @user_id)
   end
 
   def admin_update
     @cherry = Cherry.find(params[:id])
-    @user = @cherry.farm.user
-    @farm = @cherry.farm
     @cherry.update(cherry_params)
     redirect_to cherries_path
   end

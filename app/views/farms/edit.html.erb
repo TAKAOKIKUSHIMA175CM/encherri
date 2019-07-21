@@ -1,31 +1,76 @@
 <div class="container">
 	<div class="row">
-		<div class="col-12">
-			<h1 class=text-center my-5>Farm編集</h1>
+		<div class="col-12 col-md-12">
+			<h1 class="text-center">Farm編集</h1>
 				<%= form_for(@farm) do |f| %>
 					<div class="row">
-						<div class="col-4">
-							<p class="m-5">農園名</p>
-							<p class="m-5">営業期間</p>
-							<p class="m-5">入園料金</p>
-							<p class="m-5">地域</p>
-							<p class="m-5">イメージ画像</p>
-							<p class="m-5">地図のリンク</p>
-							<p class="m-5">特徴</p>
+						<div class="col-5 col-md-4">
+							<p class="my-5">農園名</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<p class="my-5"><%= f.text_field :farm_name %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
+							<p class="my-5">営業期間</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<p class="my-5"><%= f.select :business_day, [["1月", "1月"], ["2月", "2月"], ["3月", "3月"], ["4月", "4月"], ["5月", "5月"], ["6月", "6月"], ["7月", "7月"], ["8月", "8月"], ["9月", "9月"], ["10月", "10月"], ["11月", "11月"], ["12月", "12月"]] %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
+							<p class="my-5">入園料金</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="farm-edit-price">
+								<p class="my-5"><%= f.text_field :price %>円</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
+							<p class="my-5">地域</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<p class="my-5"><%= f.collection_select :area_id, Area.all, :id, :todoufuken %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
+							<p class="my-5">イメージ画像</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="farm-edit-image">
+								<p class="my-5"><%= f.attachment_field :farm_image %></p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
+							<p class="my-5">地図のリンク</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<div class="farm-edit-image">
+								<p class="my-5"><%= f.attachment_field :map_image %></p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
+							<p class="my-5">特徴</p>
+						</div>
+						<div class="col-7 col-md-8">
+							<p class="my-5"><%= f.text_area :feature %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5 col-md-4">
 							<p></p>
 						</div>
-
-						<div class="col-8"></p>
-							<p class="m-5"><%= f.text_field :farm_name %></p>
-							<p class="m-5"><%= f.select :business_day, [["1月", "1月"], ["2月", "2月"], ["3月", "3月"], ["4月", "4月"], ["5月", "5月"], ["6月", "6月"], ["7月", "7月"], ["8月", "8月"], ["9月", "9月"], ["10月", "10月"], ["11月", "11月"], ["12月", "12月"]] %></p>
-							<p class="m-5"><%= f.text_field :price %>円</p>
-							<p class="m-5"><%= f.collection_select :area_id, Area.all, :id, :todoufuken %></p>
-							<p class="m-5"><%= f.attachment_field :farm_image %></p>
-							<p class="m-5"><%= f.attachment_field :map_image %></p>
-							<p class="m-5"><%= f.text_area :feature %></p>
-							<div class="ml-5 pl-5">
-								<%= f.submit '保存',class: "btn btn-info" %>
-							</div>
+						<div class="col-7 col-md-8">
+							<%= f.submit '保存',class: "btn btn-info" %>
 						</div>
 					</div>
 				<% end %>

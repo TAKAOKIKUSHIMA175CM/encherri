@@ -1,57 +1,64 @@
  <div class="container">
+    <ul>
+        <% @cherry.errors.full_messages.each do |error| %>
+                <%= error %>
+        <% end %>
+    </ul>
     <h1 class="text-center my-5">新規登録（品種）</h1>
     <hr>
     <%= form_for @cherry, url: admin_cherries_path do |cherry| %>
         <div class="row">
-        	<div class="col-md-3">
+        	<div class="col-4 col-md-3">
             	<p class="text-center my-4">品種名</p>
             </div>
-            <div class="col-md-9">
+            <div class="col-8 col-md-9">
                 <p class="text-center my-4"><%= cherry.text_field :cherry_name, :size=>"80" %></p>
                                             <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-4 col-md-3">
             	<p class="text-center my-4">粒の大きさ</p>
             </div>
-            <div class="col-md-9">
+            <div class="col-8 col-md-9">
                 <p class="text-center my-4"><%= cherry.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %><p>
                                             <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-4 col-md-3">
             	<p class="text-center my-4">甘み</p>
             </div>
-            <div class="col-md-9">
+            <div class="col-8 col-md-9">
                 <p class="text-center my-4"><%= cherry.select :taste, [["強い", "1"], ["普通", "2"], ["控えめ", "1"]] %></p>
                                             <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-4 col-md-3">
             	<p class="text-center my-4">酸味</p>
             </div>
-            <div class="col-md-9">
+            <div class="col-8 col-md-9">
                 <p class="text-center my-4"><%= cherry.select :sour, [["強い", "3"], ["普通", "2"], ["控えめ", "1"]] %></p>
                                             <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
-            <div class="col-md-3">
-            	<p class="text-center my-4">特徴</p>
+            <div class="col-12 col-md-3">
+            	<p class="new-content text-center my-4">特徴</p>
             </div>
-            <div class="col-md-9">
-                <p class="text-center my-4"><%= cherry.text_area :content, :size=>"80×20" %></p>
+            <div class="col-12 col-md-9">
+                <p class="text-center"><%= cherry.text_area :content, class: "new-content-frame", :size=>"80×20" %></p>
                                             <%= cherry.hidden_field :cherry, :value => @cherry.id %>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-4 col-md-3">
             	<p class="text-center my-4">イメージ画像選択</p>
             </div>
-            <div class="col-md-9">
-                <%= cherry.attachment_field :cherry_image, :size=>"80" %>
-                <%= cherry.hidden_field :cherry, :value => @cherry.id %>
+            <div class="col-8 col-md-9">
+                <div class="new-file">
+                    <%= cherry.attachment_field :cherry_image, :size=>"80" %>
+                    <%= cherry.hidden_field :cherry, :value => @cherry.id %>
+                </div>
                 <hr>
             </div>
-                <div class="col-4 offset-4">
+                <div class="col-4 col-md-4 offset-4">
                     <div class="d-flex justify-content-center">
         		      <%= cherry.submit '登録', class: 'btn btn-info' %>
                     </div>

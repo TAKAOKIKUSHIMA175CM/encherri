@@ -2,10 +2,10 @@
 	      <h3 class="text-center my-5">Farms</h3>
 	      <% @farms.each do |farm| %>
 	      <div class="row">
-	        <div class="col-3">
+	        <div class="col-12 col-md-3">
 	            <%= attachment_image_tag farm, :farm_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
 	        </div>
-	       	<div class="col-4">
+	       	<div class="col-6 col-md-4">
 	            <div style="height: 40px; width: 300px">
 	              <p><%= farm.farm_name %></p>
 	            </div>
@@ -16,7 +16,7 @@
 	              <p>営業期間 : <%= farm.business_day %></p>
 	            </div>
 	        </div>
-	        <div class="col-2">
+	        <div class="col-6 col-md-2">
 	            <div style="height: 40px; width: 200px">
 	            <%= link_to "Farm編集", edit_admin_farm_path(farm.id), class:"btn btn-success" %>
 	            </div>
@@ -31,10 +31,10 @@
 	              </div>
 	            <% end %>
 	        </div>
-	        <div class="col-2">
+	        <div class="col-6 col-md-2">
 	        	<%#= link_to "cherry編集", edit_admin_cherry_path(farm.cherry.id), class:"btn btn-success" %>
 	        </div>
-	        <div class="col-1">
+	        <div class="col-12 col-md-1">
 	        	<%= link_to "削除", destroy_admin_farm_path(farm.id), method: :delete, class:"btn btn-danger",data: {confirm:"削除しますか？"} %>
 	        </div>
 	      </div>

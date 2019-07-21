@@ -1,54 +1,54 @@
 			<!-- User編集 -->
 	<div class="container">
-		<div class="col-12">
-			<div class = "row">
+		<div class = "row">
+			<div class="col-12 col-md-12">
 				<h3 class="my-5">User</h3>
 				<%= form_for @user, url: user_path(@user.id) do |f| %>
 					<div class="row">
-						<div class="col-4">
+						<div class="col-4 col-md-4">
 							<p class="text-center">名前</p>
 						</div>
-						<div class="col-8">
+						<div class="col-8 col-md-8">
 							<%= f.text_field :name_kanji, :size=>"80" %>
 							<hr>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-4">
+						<div class="col-4 col-md-4">
 							<p class="text-center">名前（カナ）</p>
 						</div>
-						<div class="col-8">
+						<div class="col-8 col-md-8">
 							<%= f.text_field :name_kana, :size=>"80" %>
 							<hr>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-4">
+						<div class="col-4 col-md-4">
 							<p class="text-center">郵便番号</p>
 						</div>
-						<div class="col-8">
+						<div class="col-8 col-md-8">
 							<%= f.text_field :post_code, :size=>"80" %>
 							<hr>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-4">
+						<div class="col-4 col-md-4">
 							<p class="text-center">農園住所</p>
 						</div>
-						<div class="col-8">
+						<div class="col-8 col-md-8">
 							<%= f.text_field :address, :size=>"80" %>
 							<hr>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-4">
+						<div class="col-4 col-md-4">
 							<p class="text-center">電話番号</p>
 						</div>
-						<div class="col-8">
+						<div class="col-8 col-md-8">
 							<%= f.text_field :phone_number, :size=>"80" %>
 							<hr>
 							<%= f.submit '情報更新', class: 'btn btn-info' %>

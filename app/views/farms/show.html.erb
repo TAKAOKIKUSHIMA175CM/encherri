@@ -6,10 +6,10 @@
 		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
 		  	<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
 		  	<div class="row">
-		    	<div class="col-4 mt-5">
+		    	<div class="col-12 col-md-4 mt-5">
 		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
 		    	</div>
-		    	<div class="col-8">
+		    	<div class="col-12 col-md-8">
 		    			<p >住所 : <%= @farm.user.address %></p>
 		    			<hr>
 		    			<p class= "mt-5">電話番号 : <%= @farm.user.phone_number %></p>
@@ -30,22 +30,22 @@
 		    <% @farm.cherries.each do |cherry|%>
 
 		    <div class="row">
-		    	<div class="col-3">
+		    	<div class="col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
 		    		</div>
 		    	</div>
-		    	<div class="col-3">
+		    	<div class="col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
 		    		</div>
 		    	</div>
-		    	<div class="col-3">
+		    	<div class="col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">甘味 : <%= cherry.taste %></p><hr>
 		    		</div>
 		    	</div>
-		    	<div class="col-3">
+		    	<div class="col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
 		    		</div>
@@ -54,22 +54,22 @@
 
 
 		    <div class="row">
-		    	<div class="col-3">
+		    	<div class="col-12 col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
 		    		</div>
 		    	</div>
-		    	<div class="col-3">
+		    	<div class="col-12 col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
 		    		</div>
 		    	</div>
-		    	<div class="col-3">
+		    	<div class="col-12 col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">甘味 : <%= cherry.taste %></p><hr>
 		    		</div>
 		    	</div>
-		    	<div class="col-3">
+		    	<div class="col-12 col-md-3">
 		    		<div style="height: 40px; width: 250px">
 		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
 		    		</div>
@@ -79,18 +79,18 @@
 		<% end %>
 
 		    <div class="row">
-		    	<div class="col-12">
+		    	<div class="col-12 col-md-12">
 		    		<p class= "text-center my-5">当園の特徴</p>
 		    			<%= @farm.feature %>
 		    		<hr class= "mt-5">
 		    	</div>
 		    </div>
 		    <div class="row">
-		    	<div class="col-12">
+		    	<div class="col-12 col-md-12">
 		    		<p class="text-center my-5">MAP</p>
 		    		<div class="d-flex justify-content-center">
 		    			<!-- 画像の場合はmodelに記載を忘れないこと -->
-		    			<%=  attachment_image_tag @farm, :map_image, :fill, 837, 500, format: "jpeg", fallback: "no_image.jpg", size: '100x500' %>
+		    			<%= attachment_image_tag @farm, :map_image, :fill, 837, 500, format: "jpeg", fallback: "no_image.jpg", size: '100x500', class:"show-map" %>
 		    		</div>
 		    	</div>
 		    </div>

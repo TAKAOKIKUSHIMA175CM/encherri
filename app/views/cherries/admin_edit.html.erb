@@ -1,49 +1,51 @@
 <div class="container">
-  <%= form_for [@farm, @cherry], url: update_admin_cherry_path do |f| %>
-    <h1 class="text-center my-5">Cherry編集（品種）</h1>
+  <%= form_for (@cherry), url: update_admin_cherry_path do |f| %>
+    <h1 class="cherry-edit text-center my-5">Cherry編集</h1>
     <hr>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-3 col-md-3">
                 <p class="text-center my-4">品種名</p>
             </div>
-            <div class="col-md-9">
-                <p class="text-center my-4"><%= f.text_field :cherry_name %><%= f.hidden_field :farm_id, :value => @farm.id %></p>
+            <div class="col-9 col-md-9">
+                <p class="text-center my-4"><%= f.text_field :cherry_name %></p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-3 col-md-3">
                 <p class="text-center my-4">粒の大きさ</p>
             </div>
-            <div class="col-md-9">
-                <p class="text-center my-4"><%= f.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %><%= f.hidden_field :farm_id, :value => @farm.id %><p>
+            <div class="col-9 col-md-9">
+                <p class="text-center my-4"><%= f.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %><p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-3 col-md-3">
                 <p class="text-center my-4">甘み</p>
             </div>
-            <div class="col-md-9">
-                <p class="text-center my-4"><%= f.select :taste, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %><%= f.hidden_field :farm_id, :value => @farm.id %></p>
+            <div class="col-9 col-md-9">
+                <p class="text-center my-4"><%= f.select :taste, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %></p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-3 col-md-3">
                 <p class="text-center my-4">酸味</p>
             </div>
-            <div class="col-md-9">
-                <p class="text-center my-4"><%= f.select :sour, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %><%= f.hidden_field :farm_id, :value => @farm.id %></p>
+            <div class="col-9 col-md-9">
+                <p class="text-center my-4"><%= f.select :sour, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %></p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-3 col-md-3">
                 <p class="text-center my-4">特徴</p>
             </div>
-            <div class="col-md-9">
-                <p class="text-center my-4"><%= f.text_area :content %><%= f.hidden_field :farm_id, :value => @farm.id %></p>
+            <div class="col-9 col-md-9">
+                <p class="text-center my-4"><%= f.text_area :content %></p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-3 col-md-3">
                 <p class="text-center my-4">イメージ画像選択</p>
             </div>
-            <div class="col-md-9">
-                <%= f.attachment_field :cherry_image %><%= f.hidden_field :farm_id, :value => @farm.id %>
-                <hr>
+            <div class="col-9 col-md-9">
+                <div class="edit-image">
+                    <%= f.attachment_field :cherry_image %>
+                    <hr>
+                </div>
             </div>
                 <%= f.submit '更新', class: "btn btn-primary btn-block" %>
         </div>

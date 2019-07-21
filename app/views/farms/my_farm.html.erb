@@ -3,10 +3,10 @@
   <% @farm.each do |f| %>
     <div class="container">
       <div class="row">
-          <div class="col-3">
+          <div class="col-12 col-md-3">
             <%= attachment_image_tag f, :farm_image, format: "jpeg", fallback: "no_image.jpg", size: "150x160" %>
           </div>
-          <div class="col-4">
+          <div class="col-6 col-md-4">
             <div style="height: 40px; width: 300px">
               <p><%= f.farm_name %></p>
             </div>
@@ -17,7 +17,7 @@
               <p>営業期間 : <%= f.business_day %></p>
             </div>
           </div>
-        <div class="col-2">
+        <div class="col-6 col-md-2">
             <div style="height: 40px; width: 200px">
               <p>料金 : <%= f.price %>円</p>
             </div>
@@ -29,7 +29,7 @@
               </div>
             <% end %>
         </div>
-        <div class = "col-2">
+        <div class="col-12 col-md-2">
           <div class="mb-3">
             <%= link_to "詳細情報", farm_path(f.id), class: 'btn btn-info'%>
           </div>

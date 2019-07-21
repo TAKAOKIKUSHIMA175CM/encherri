@@ -31,8 +31,8 @@ devise_for :users
 
   get "cherries/new/:farm_id" => "cherries#new", as: "cherries_new"
   get "admin/cherries/" => "cherries#admin_index"
-  get "admin/cherries/:id" => "cherries#admin_show", as: "show_admin_cherry"
   get "admin/cherries/new" => "cherries#admin_new"
+  get "admin/cherries/:id" => "cherries#admin_show", as: "show_admin_cherry"
   post "admin/cherries/" => "cherries#admin_create", as: "create_admin_cherry"
   get "admin/cherries/:id/edit" => "cherries#admin_edit", as: "edit_admin_cherry"
   patch "admin/cherries/:id" => "cherries#admin_update", as: "update_admin_cherry"

@@ -80,3 +80,8 @@
 	color: #fff;
 }
 
+@media screen and (max-width:425px){
+	.cherry-container{
+			display:none;
+	}
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Encherri</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -51,7 +52,7 @@
                     <%#= form_for @farm, url:seach_path do |f| %>
                       <%#= f.text_field :farm_name %>
                     <%= search_form_for @search do |f| %>
-                      <%= f.label :farm_name_cont, "農園名を含む" %>
+                      <%= f.label :farm_name_cont, "農園名" %>
                       <%= f.search_field :farm_name_cont %>
                       <%= f.submit "検索" %>
                     <% end %>
@@ -136,3 +137,4 @@
     </footer>
   </body>
 </html>
+

@@ -1,63 +1,70 @@
             <!-- cherry情報 -->
     <div class="container">
-            <h3 class=text-center "my-5">Cherry</h3>
+        <ul>
+            <% @cherry.errors.full_messages.each do |error| %>
+                <%= error %>
+            <% end %>
+        </ul>
+            <h3 class="text-center my-5">Cherry</h3>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5 col-md-4">
                     <%= form_for [@farm, @cherry], url: cherries_path do |f| %>
                     <br>
                         <p>主力品種入力</p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-7 col-md-8">
                         <p>＊主な取り扱い品種名を１つ入力して下さい。</p>
-                        <%= f.text_field :cherry_name, :size=>"80" %>
+                        <%= f.text_field :cherry_name %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-5 col-md-4">
                         <p>サイズ</p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-7 col-md-8">
                         <!-- プルダウンの書き方。今回はチャートを作るのでカラムをintegerにしている -->
                         <%= f.select :size, [["大きい", "大きい"], ["普通", "普通"], ["小さい", "小さい"]] %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-5 col-md-4">
                         <p>甘味</p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-7 col-md-8">
                         <!-- プルダウンの書き方。今回はチャートを作るのでカラムをintegerにしている -->
                         <%= f.select :taste, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-5 col-md-4">
                         <p>酸味</p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-7 col-md-8">
                         <%= f.select :sour, [["強い", "強い"], ["普通", "普通"], ["控えめ", "控えめ"]] %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-5 col-md-4">
                         <p>特徴</p>
                     </div>
-                    <div class="col-8">
-                        <%= f.text_area :content, :size=>"80" %>
+                    <div class="col-7 col-md-8">
+                        <%= f.text_area :content %>
                         <%= f.hidden_field :farm_id, :value => @farm.id %>
                         <hr>
                     </div>
 
-                     <div class="col-4">
+                     <div class="col-5 col-md-4">
                         <p>イメージ画像</p>
                     </div>
-                    <div class="col-8">
-                        <%= f.attachment_field :cherry_image, :size=>"80" %>
-                        <%= f.hidden_field :farm_id, :value => @farm.id %>
+                    <div class="col-7 col-md-8">
+                        <div class="cherry-image-new">
+                            <%= f.attachment_field :cherry_image, :size=>"80" %>
+                            <%= f.hidden_field :farm_id, :value => @farm.id %>
+                        </div>
                         <hr>
                         <%= f.submit '登録', class: 'btn btn-info' %>
                     </div>
