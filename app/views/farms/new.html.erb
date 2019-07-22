@@ -1,4 +1,9 @@
 <div class="container">
+	<ul>
+        <% @farm.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
 	<div class="row">
 	  	<div class="col-12 col-md-12">
 			<h1 class="text-center my-4">Farm新規登録</h1>
@@ -68,7 +73,7 @@
 					</div>
 					<div class="col-8 col-md-8">
 						<div class="file-choice">
-							<%= f.attachment_field :farm_image %>
+							<%= f.attachment_field :farm_image, :size=>"25" %>
 							<hr>
 						</div>
 					</div>

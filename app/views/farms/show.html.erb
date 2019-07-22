@@ -4,9 +4,11 @@
 		  <h1 class="text-center my-5"><%= @farm.farm_name %></h1>
 		  	<!-- if user_sign_in?でログインしている時だけボタンを表示する.さらに、ファームの持ってるuser_idとカレントユーザーidが一緒なら表示する -->
 		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
-		  	<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
+		  	<div class="show-cherry-btn">
+		  		<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
+		  	</div>
 		  	<div class="row">
-		    	<div class="col-12 col-md-4 mt-5">
+		    	<div class="text-center col-12 col-md-4 mt-5">
 		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
 		    	</div>
 		    	<div class="col-12 col-md-8">

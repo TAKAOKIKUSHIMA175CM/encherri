@@ -7,7 +7,7 @@ class FarmsController < ApplicationController
     #order(:id).reverse_orderで新しい投稿順に表示している
     @farm = Farm.where(user_id: @user_id).order(:id).reverse_order
     # @cherries = Cherry.where(farm_id: @farm_id)
-    @cherries = Cherry.limit(17).order(:id).reverse_order
+    @cherries = Cherry.limit(8).order(:id).reverse_order
     # ランサックの記述
     @search = Farm.ransack(params[:q])
     @farms = @search.result.page(params[:page]).reverse_order
@@ -72,7 +72,7 @@ class FarmsController < ApplicationController
   end
 
   def admin_index
-    @farms = Farm.all.order(:id).reverse_order
+    @farms = Farm.page(params[:page]).reverse_order
     @user = User.find_by(id: params[:id])
     #親のfarmから子のCherryを紐づけている
     @farm = Farm.where(use_id: @user_id)

@@ -8,16 +8,31 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- drawer.jsの導入 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
   </head>
 
   <body>
-    <header>
+    <!-- ハンバーガーメニューの記述class -->
+    <header class="drawer drawer--right">
       <div class="headline">
         <h1>encheri</h1>
       </div>
-
-      <nav>
-        <ul class="nav-list">
+      <%= search_form_for @search do |f| %>
+          <%= f.label :farm_name_cont, "農園名" %>
+          <%= f.search_field :farm_name_cont %>
+          <%= f.submit "検索" %>
+      <% end %>
+      <!-- ハンバーガーメニューのアイコン記述 -->
+      <button type = "button" class="drawer-toggle drawer-hamburger">
+        <span class="sr-only">toggle navigation</span>
+        <span class="drawer-hamburger-icon"></span>
+      </button>
+      <!-- 以下２行ハンバーガーメニューの記述 -->
+      <nav class="drawer-nav" style="background-color: rgba(255,255,255,0.8);">
+        <ul class="drawer-manu">
           <!-- 管理人がログインしているかのチェック -->
           <% if user_signed_in? %>
 
@@ -46,16 +61,6 @@
                   </li>
                   <li class="nav-list-item">
                     <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
-                  </li>
-                  <li class="nav-list-item">
-
-                    <%#= form_for @farm, url:seach_path do |f| %>
-                      <%#= f.text_field :farm_name %>
-                    <%= search_form_for @search do |f| %>
-                      <%= f.label :farm_name_cont, "農園名" %>
-                      <%= f.search_field :farm_name_cont %>
-                      <%= f.submit "検索" %>
-                    <% end %>
                   </li>
 
               <!-- 農場管理人がログインした場合 -->
@@ -87,13 +92,6 @@
                   <li class="nav-list-item">
                     <%= link_to 'sign out', user_registration_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
-                  <li class="nav-list-item">
-                    <%= search_form_for @search do |f| %>
-                      <%= f.label :farm_name_cont, "農園名を含む" %>
-                      <%= f.search_field :farm_name_cont %>
-                      <%= f.submit "検索" %>
-                    <% end %>
-                  </li>
 
               <% end %>
 
@@ -116,13 +114,6 @@
           </li>
           <li class="nav-list-item">
             <%= link_to 'sign up', new_user_registration_path, class: "header-title nav-item nav-link text-dark" %>
-          </li>
-          <li class="nav-list-item">
-              <%= search_form_for @search do |f| %>
-                <%= f.label :farm_name_cont, "農園名を含む" %>
-                <%= f.search_field :farm_name_cont %>
-                <%= f.submit "検索" %>
-              <% end %>
           </li>
           <% end %>
         </ul>

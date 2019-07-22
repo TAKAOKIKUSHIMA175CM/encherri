@@ -1,3 +1,4 @@
+<div class="main-page">
 <div class="main-visual">
   <div class="main-visual-content">
   	<p class="main-visual-text">
@@ -60,7 +61,7 @@
                 <!-- ファームに紐づくcherryを持ってくるので上記から続いているeach文のfarmと.cherriesの以下の書き方でいける -->
                 <!-- farmから見てcherryは 1:N なので　farm.cherries でeach文を回す -->
                 <% farm.cherries.each do |cherry| %>
-                  <div style="height: 40px; width: 200px">
+                  <div style="height: 40px; width: 100px">
                     <p>品種 : <%= cherry.cherry_name %></p>
                   </div>
                 <% end %>
@@ -71,7 +72,11 @@
       <% end %>
       <hr>
       <% end %>
+          <div id="back">
+          </div>
+
     <%= paginate @farms, class: "paginate" %>
   </div>
   </div>
+</div>
 </div>

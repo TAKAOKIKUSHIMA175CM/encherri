@@ -7,7 +7,7 @@
 		        	<div class="cherry-show-image">
 				        <div class="col-12 col-md-4 mt-5">
 				            <%= attachment_image_tag cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
-				            <p style="margin-left :100px", class="my-3"><%= cherry.cherry_name %></p>
+				            <p style="margin-left :100px", class="breed-cherry-name my-3"><%= cherry.cherry_name %></p>
 				        </div>
 				    </div>
 			        <div class="col-12 col-md-8 mt-5">
@@ -48,6 +48,8 @@
 			        </div>
 		        </div>
 	      	<% end %>
+	      <div id="back">
+          </div>
     	</div>
   	</div>
 </div>

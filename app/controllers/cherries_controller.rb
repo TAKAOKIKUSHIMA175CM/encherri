@@ -1,6 +1,6 @@
 class CherriesController < ApplicationController
   def index
-    @cherries = Cherry.all.order(:id).reverse_order
+    @cherries = Cherry.page(params[:page]).reverse_order
     # @farms = Farm.all
     @user = User.find_by(id: params[:id])
     #親のfarmから子のCherryを紐づけている
@@ -50,7 +50,7 @@ class CherriesController < ApplicationController
   end
 
   def admin_index
-    @cherries = Cherry.all.reverse_order
+    @cherries = Cherry.page(params[:page]).reverse_order
   end
 
   def admin_new
