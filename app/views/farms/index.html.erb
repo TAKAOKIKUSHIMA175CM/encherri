@@ -15,17 +15,17 @@
 <div class="container">
   <div class="row">
     <div class="cherry-container">
-    <div class="col-md-3">
-      <h3 class="my-5" style="margin-left: 17px;">Cherries</h3>
-        <% @cherries.each do |cherry| %>
+      <div class="col-md-3">
+        <h3 class="my-5" style="margin-left: 17px;">Cherries</h3>
+          <% @cherries.each do |cherry| %>
 
-          <!-- 1品種の説明 -->
-          <%= link_to cherries_path do %>
-            <%= attachment_image_tag cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "150x100" %>
+            <!-- 1品種の説明 -->
+            <%= link_to cherries_path do %>
+              <%= attachment_image_tag cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "150x100" %>
+            <% end %>
+              <p style="margin-left: 50px; width: 150px;"><%= cherry.cherry_name %></p>
           <% end %>
-            <p style="margin-left: 50px; width: 150px;"><%= cherry.cherry_name %></p>
-        <% end %>
-    </div>
+      </div>
     </div>
 
     <!-- farm -->
@@ -66,8 +66,8 @@
                   </div>
                 <% end %>
               </div>
-            </div>
           </div>
+        </div>
       </div>
       <% end %>
       <hr>

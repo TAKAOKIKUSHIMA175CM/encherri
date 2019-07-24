@@ -132,7 +132,7 @@ class FarmsController < ApplicationController
 # 以下の入力を許可
   private
   def farm_params
-    params.require(:farm).permit(:farm_name, :user_id, :business_day, :map_image, :farm_image, :price, :area, :feature, user_attributes:[:id])
+    params.require(:farm).permit(:farm_name, :user_id, :business_day, :map_image, :farm_image, :price, :area, :feature, :home_page, user_attributes:[:id])
   end
 
   def search_params

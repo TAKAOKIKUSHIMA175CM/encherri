@@ -1,6 +1,6 @@
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-12">
+      <div class="col-12">
         <div class="d-flex justify-content-center">
           <div class="rounded">
             <div class="form-header text-center">
@@ -13,6 +13,7 @@
                 <div class="card"  style= "width: 100%;">
 
                   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <!-- 以下一行エラーメッセージの記述 -->
                     <%= render "devise/shared/error_messages", resource: resource %>
                     <table class="table table-hover table-striped">
                       <colgroup span="1" width="40%"></colgroup>

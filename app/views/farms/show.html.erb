@@ -3,7 +3,7 @@
 		<div class="col-12">
 		  <h1 class="text-center my-5"><%= @farm.farm_name %></h1>
 		  	<!-- if user_sign_in?でログインしている時だけボタンを表示する.さらに、ファームの持ってるuser_idとカレントユーザーidが一緒なら表示する -->
-		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
+		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info mx-4' if user_signed_in? && current_user.id == @farm.user_id %>
 		  	<div class="show-cherry-btn">
 		  		<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
 		  	</div>
@@ -53,31 +53,6 @@
 		    		</div>
 		    	</div>
 		    </div>
-
-
-		    <div class="row">
-		    	<div class="col-12 col-md-3">
-		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
-		    		</div>
-		    	</div>
-		    	<div class="col-12 col-md-3">
-		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
-		    		</div>
-		    	</div>
-		    	<div class="col-12 col-md-3">
-		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">甘味 : <%= cherry.taste %></p><hr>
-		    		</div>
-		    	</div>
-		    	<div class="col-12 col-md-3">
-		    		<div style="height: 40px; width: 250px">
-		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
-		    		</div>
-		    	</div>
-		    </div>
-
 		<% end %>
 
 		    <div class="row">

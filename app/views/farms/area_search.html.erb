@@ -13,58 +13,65 @@
 <!-- Cherry -->
 <div class="container">
   <div class="row">
-    <div class="col-3">
-      <h3 class="my-5" style="margin-left: 17px;">Cherries</h3>
-        <% @cherries.each do |cherry| %>
+    <div class="cherry-container">
+      <div class="col-md-3">
+        <h3 class="my-5" style="margin-left: 17px;">Cherries</h3>
+          <% @cherries.each do |cherry| %>
 
-          <!-- 1品種の説明 -->
-          <%= link_to cherries_path do %>
-            <%= attachment_image_tag cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "150x100" %>
+            <!-- 1品種の説明 -->
+            <%= link_to cherries_path do %>
+              <%= attachment_image_tag cherry, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "150x100" %>
+            <% end %>
+              <p style="margin-left: 50px; width: 150px;"><%= cherry.cherry_name %></p>
           <% end %>
-            <p style="margin-left: 50px;"><%= cherry.cherry_name %></p>
-        <% end %>
-
+      </div>
     </div>
 
     <!-- farm -->
-  <div class="col-9">
+  <div class="main-farm col-md-9 col-12">
       <h3 class="text-center my-5">Farms</h3>
       <% @farm.each do |farm| %>
       <!-- 以下のlink_toでlinkを張っているendで囲っているとことがリンクになる -->
       <%= link_to farm_path(farm.id) do %>
       <div class="row">
-          <div class="col-3">
+          <div class="col-6 col-md-3">
             <%= attachment_image_tag farm, :farm_image, format: "jpeg", fallback: "no_image.jpg", size: "150x120" %>
           </div>
-          <div class="col-5">
-            <div style="height: 40px; width: 300px">
-              <p><%= farm.farm_name %></p>
-            </div>
-            <div style="height: 40px; width: 300px">
-              <p>住所 : <%= farm.user.address %></p>
-            </div>
-            <div style="height: 40px; width: 300px">
-              <p>営業期間 : <%= farm.business_day %></p>
+          <div class="col-6 col-md-9">
+            <div class="row">
+              <div class="col-12 col-md-7">
+                <div style="height: 40px;">
+                  <p><%= farm.farm_name %></p>
+                </div>
+                <div style="height: 40px;">
+                  <p>住所 : <%= farm.user.address %></p>
+                </div>
+                <div style="height: 40px;">
+                  <p>営業期間 : <%= farm.business_day %></p>
+                </div>
+              </div>
+            <div class="cherry-price col-12 col-md-5">
+                <div style="height: 40px;">
+                </div>
+                <div style="height: 40px;">
+                  <p>入園料 : <%= farm.price %>円</p>
+                </div>
+                <!-- ファームに紐づくcherryを持ってくるので上記から続いているeach文のfarmと.cherriesの以下の書き方でいける -->
+                <!-- farmから見てcherryは 1:N なので　farm.cherries でeach文を回す -->
+                <% farm.cherries.each do |cherry| %>
+                  <div style="height: 40px; width: 100px">
+                    <p>品種 : <%= cherry.cherry_name %></p>
+                  </div>
+                <% end %>
             </div>
           </div>
-        <div class="col-4">
-            <div style="height: 40px; width: 200px">
-            </div>
-            <div style="height: 40px; width: 200px">
-              <p>入園料 : <%= farm.price %>円</p>
-            </div>
-            <!-- ファームに紐づくcherryを持ってくるので上記から続いているeach文のfarmと.cherriesの以下の書き方でいける -->
-            <!-- farmから見てcherryは 1:N なので　farm.cherries でeach文を回す -->
-            <% farm.cherries.each do |cherry| %>
-              <div style="height: 40px; width: 200px">
-                <p>品種 : <%= cherry.cherry_name %></p>
-              </div>
-            <% end %>
         </div>
       </div>
       <% end %>
       <hr>
       <% end %>
+        <div id="back">
+        </div>
 
   </div>
 </div>

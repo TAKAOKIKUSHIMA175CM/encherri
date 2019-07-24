@@ -1,5 +1,7 @@
+
 <% if resource.errors.any? %>
-  <div id="error_explanation">
+<!-- 以下一行エラーメッセージの記述 -->
+  <div id="error_explanation error_message_col" style="width:300px">
     <h2>
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
