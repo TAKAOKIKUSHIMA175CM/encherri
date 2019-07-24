@@ -5,7 +5,7 @@
           <% @cherries.each do |f| %>
             <div class="row">
                 <div class="col-4 mt-5">
-                        <%= attachment_image_tag f, :cherry_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
+                        <%= attachment_image_tag f, :cherry_image, format: "jpeg", fallback: "/images/no_image.jpg", size: "250x150" %>
                         <p class="text-center my-3"><%= f.cherry_name %></p>
                 </div>
                 <div class="col-8 mt-5">
