@@ -9,7 +9,7 @@
 		  	</div>
 		  	<div class="row">
 		    	<div class="text-center col-12 col-md-4 mt-5">
-		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
+		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "/images/no_image.jpg, size:200×200" %>
 		    	</div>
 		    	<div class="col-12 col-md-8">
 		    			<p >住所 : <%= @farm.user.address %></p>
@@ -67,7 +67,7 @@
 		    		<p class="text-center my-5">MAP</p>
 		    		<div class="d-flex justify-content-center">
 		    			<!-- 画像の場合はmodelに記載を忘れないこと -->
-		    			<%= attachment_image_tag @farm, :map_image, :fill, 837, 500, format: "jpeg", fallback: "no_image.jpg", size: '100x500', class:"show-map" %>
+		    			<%= attachment_image_tag @farm, :map_image, :fill, 837, 500, format: "jpeg", fallback: "/images/no_image.jpg", size: '100x500', class:"show-map" %>
 		    		</div>
 		    	</div>
 		    </div>

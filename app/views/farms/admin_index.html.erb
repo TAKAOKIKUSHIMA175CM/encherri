@@ -3,7 +3,7 @@
 	      <% @farms.each do |farm| %>
 	      <div class="row">
 	        <div class="col-12 col-md-3">
-	            <%= attachment_image_tag farm, :farm_image, format: "jpeg", fallback: "no_image.jpg", size: "250x150" %>
+	            <%= attachment_image_tag farm, :farm_image, format: "jpeg", fallback: "/images/no_image.jpg", size: "250x150" %>
 	        </div>
 	       	<div class="col-6 col-md-4">
 	            <div style="height: 40px; width: 300px">
