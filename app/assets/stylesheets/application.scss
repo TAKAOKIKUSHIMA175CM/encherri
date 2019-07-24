@@ -1,0 +1,359 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+    @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body{
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+header{
+	height: 150px;
+	padding: 15px 0;
+	margin :0 auto;
+	text-align: center;
+}
+h1{
+	margin-bottom: 40px;
+}
+.header-margin{
+	margin: 0 0 30px 0;
+}
+.headline{
+	text-align: center;
+}
+.nav-list-item{
+	display: inline-block;
+	padding:10px 20px;
+	width: 100%;
+}
+
+.nav-list-item:hover {
+	color: black;
+	font-size: 20px;
+}
+
+.main-visual {
+	width: 100%;
+	height: 300px;
+	background: image-url('cherries.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.main-visual-content {
+	width: 40%;
+	height: 300px;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	padding-top: 110px;
+}
+.main-visual-text {
+	color: #fff;
+}
+.main-visual-consept{
+	color: #fff;
+	margin-top: 30px;
+}
+.admin_cherry_name{
+	margin-left: 100px;
+}
+.show-cherry-btn{
+	float: left;
+}
+
+footer{
+	background-color: #FF4F50;
+	margin-top: 30px;
+	padding: 25px 0 10px 0;
+}
+.footer-title{
+	text-align: center;
+	color: white;
+}
+#back{
+  	position: fixed;
+  	right: 20px;
+	bottom: 20px;
+}
+#back{
+  	position: fixed;
+  	right: 20px;
+  	bottom: 100px;
+  	height: 40px;
+  	width: 40px;
+  	background: image-url("arrow.jpg");
+  	background-size: cover;
+}
+
+
+@media screen and (max-width:425px){
+	header{
+		/*width: 100%;*/
+		height: auto;
+	}
+	.main-page{
+		margin: 0 auto;
+	}
+	.nav-list-item{
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+	.main-visual-content{
+		width: 100%;
+	}
+	.main-farm{
+		width: 100%;
+	}
+	.blank{
+		display:none;
+	}
+	.pic img{
+	    max-width:100%;
+	    max-height:100%;
+	}
+	.breed-content{
+		padding-bottom: 0;
+	}
+	.breed-name{
+		margin-right: 0px;
+	}
+	.image-text{
+		font-size: 10px;
+	}
+	.new-file{
+		padding-top: 30px;
+		font-size: 12px;
+	}
+	.new-content{
+		float: left;
+		margin-left: 30px;
+	}
+	.new-content-frame{
+		margin-top: 0px;
+		width: 100%;
+	}
+	.cherry-edit{
+		width:100%;
+		height:100%;
+	}
+	.edit-image{
+		font-size: 12px;
+		padding-top: 40px
+	}
+	.cherry-index{
+		max-width:100%;
+	}
+	.file-choice{
+		font-size: 12px;
+	}
+	/*attachment_fieldの入力欄のBOXのサイズ指定*/
+	input{
+		width: 220px;
+	}
+	video{
+		width: 220px;
+		height: 200px;
+	}
+	#cherry_cherry_name{
+		width: 200px;
+	}
+	#cherry_cherry_image{
+		width: 200px;
+	}
+	.btn.btn-info{
+		width: 200px;
+	}
+	.show-cherry-btn{
+		margin-top: 20px;
+	}
+	.show-cherry-image{
+		margin-left: 8px;
+	}
+	#farm_feature{
+		width: 100%;
+	}
+	#farm_farm_name{
+		width: 180px;
+	}
+	.breed-cherry-name{
+		width: 200px;
+	}
+	#farm_price{
+		width: 180px;
+	}
+	#farm_farm_image{
+		width: 180px;
+	}
+	#farm_map_image{
+		width: 180px;
+	}
+	.my-farm-image{
+	}
+	.show-map{
+		height: 200px;
+	}
+	.cherry-show-image{
+		margin-left: 50px
+	}
+	.cherry-show-destroy{
+		margin-top: 10px;
+	}
+	.edit-farm-name{
+		margin: 0px;
+	}
+	.farm-edit-image{
+		font-size: 10px;
+	}
+	.farm-edit-price{
+		font-size: 13px;
+	}
+	.cherry-image-new{
+		font-size: 10px;
+	}
+	.admin-show-cherry{
+		margin-left: 23px;
+	}
+
+	#back{
+  		position: fixed;
+  		right: 20px;
+  		bottom: 20px;
+	}
+	#back{
+  		position: fixed;
+  		right: 20px;
+  		bottom: 100px;
+  		height: 30px;
+  		width: 30px;
+  		background: image-url("upicon.jpg");
+  		background-size: cover;
+	}
+}
+
+
+/*main {*/
+	/*width:850px;*/
+	/*margin: 0 auto;*/
+	/*padding: 70px 0;*/
+/*}*/
+
+/*sidebar*/
+/*.cherries{*/
+	/*width: 20%;*/
+	/*float: left;*/
+	/*margin-right: 60px;*/
+/*}*/
+/*.cherries-breed{*/
+	/*text-align: center;*/
+	/*line-height: 0.6;*/
+/*}*/
+/*.cherry-box{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #FF0000;
+}
+.cherry-image{
+	margin: 0 auto;
+	width: 110px;
+	background-position: center;
+	background-size: cover;
+	height: 80px;
+	padding-top:30px;
+}
+.cherry-name{
+	text-align: center;
+	padding-top: 10px;
+}
+
+/*farm*/
+/*.farm{
+	width: 540px;
+	float: left;
+	margin-right: 10px;
+}
+.farm-headline{
+	text-align: center;
+	line-height: 0.6;
+}
+.farm-box{
+	padding-top: 50px;
+}
+.farm-item{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px, solid #FF0000;
+}
+.farm-image{
+	float: left;
+	width: 275px;
+	background-position: center;
+	background-size: cover;
+	height:180px;
+	background: image-url('cherries.jpg');
+}
+.farm-text{
+	float: left;
+	padding:30px 0 0 25px;
+	width: calc(100% - 270px);
+}
+.farm-name{
+	padding-bottom: 15px;
+}
+.farm-address{
+	font-size: 15px;
+}
+.farm-time{
+	display: inline-block;
+	font-size: 15px;
+}
+.farm-price{
+	font-size: 15px;
+}
+.farm-breed{
+	display: inline-block;
+	font-size: 15px;
+}
+.pagenation {
+	text-align: center;
+	padding-top: 50px;
+}
+.pagenation p {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin: 0 5px;
+	color: #FF0000;
+	background-color: #fff;
+	border-radius: 3px;
+    line-height: 30px;
+}*/

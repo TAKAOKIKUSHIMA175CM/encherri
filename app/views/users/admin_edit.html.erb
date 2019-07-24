@@ -1,0 +1,166 @@
+<div class="container">
+	<div class="row">
+	  	<div class="col-11">
+			<h1 class="text-center my-4">管理者farm編集</h1>
+			<p class="text-center my-4">※カテゴリーずつの編集を行ってください</p>
+		</div>
+		<div class="col-1">
+				<button type="button" class="btn btn-warning">戻る</button>
+		</div>
+	 </div>
+
+	<!-- Farm編集 -->
+	<div class="row">
+		<div class="col-12">
+			<h3 class="my-5">Farm</h3>
+				<div class="row">
+					<div class="col-4">
+			<% form_for(@farm) do |f| %>
+						<p class="text-center">農園名</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :farm_name %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">営業期間</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :business_day %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">入園料金</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :price %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">地域</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :area %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">イメージ画像選択</p>
+						<button type="button" class="btn btn-primary">選択</button>
+					</div>
+					<div class="col-8">
+						<%= f.attachment_field :farm_image_id %>
+						<hr>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">農園の特徴</p>
+					</div>
+					<div class="col-8">
+						<% f.text_area :feature %>
+						<hr>
+						<% f.submit 'Farm情報の更新' %>
+						<% f.submit '削除' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">マップ画像選択</p>
+						<button type="button" class="btn btn-primary">選択</button>
+					</div>
+					<div class="col-8">
+						<%= f.attachment_field :map %>
+						<hr>
+					</div>
+				</div>
+			<% end %>
+
+			<!-- User編集 -->
+			<h3 class="my-5">User</h3>
+				<div class="row">
+					<div class="col-4">
+			<% form_for(@user) do |f| %>
+						<p class="text-center">名前</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :name_kanji %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">名前（カナ）</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :name_kana %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">郵便番号</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :post_code %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">住所</p>
+					</div>
+					<div class="col-8">
+						<% f.text_field :address %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="text-center">電話番号</p>
+					</div>
+					<div class="col-8">
+						<% f.text_fild :phone_number %>
+						<hr>
+						<% f.submit 'User情報更新' %>
+						<% f.submit '削除' %>
+					</div>
+				</div>
+			<% end %>
+
+			<!-- cherry情報 -->
+			<h3 class="my-5">Cherry</h3>
+				<div class="row">
+					<div class="col-4">
+					<% form_for (@cherry) do |f| %>
+						<p class="text-center">取り扱い品種選択</p>
+					</div>
+					<div class="col-8">
+						<p class="text-center">プルダウン</p>
+						<hr>
+						<% f.submit 'Cherry情報更新' %>
+						<% f.submit '削除' %>
+					</div>
+					<% end %>
+				</div>
+		</div>
+	</div>
+</div>

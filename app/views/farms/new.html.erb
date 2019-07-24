@@ -1,2 +1,116 @@
-<h1>Farms#new</h1>
-<p>Find me in app/views/farms/new.html.erb</p>
+<div class="container">
+	<ul>
+        <% @farm.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+	<div class="row">
+	  	<div class="col-12 col-md-12">
+			<h1 class="text-center my-4">Farm新規登録</h1>
+		</div>
+	 </div>
+
+	<!-- Farm編集 -->
+	<div class="row">
+		<div class="col-12 col-md-12">
+			<p class="text-center mt-5">*下記を入力して下さい。</p>
+				<div class="row">
+					<div class="col-4 col-md-4">
+			<%= form_for @farm, url: farms_path do |f| %>
+						<p class="text-center">農園名</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<%= f.text_field :farm_name %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">主な営業期間</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<%= f.select :business_day, [["1月", "1月"], ["2月", "2月"], ["3月", "3月"], ["4月", "4月"], ["5月", "5月"], ["6月", "6月"], ["7月", "7月"], ["8月", "8月"], ["9月", "9月"], ["10月", "10月"], ["11月", "11月"], ["12月", "12月"]] %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">入園料金</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<p><%= f.text_field :price %>円</p>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">地域</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<!-- integer型のIDと、そのIDが持つDBに登録さえている情報をプルダウンで表示してる -->
+						<%= f.collection_select :area_id, Area.all, :id, :todoufuken %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">ホームページのリンク<br>
+						(＊HPのURLを入力してください)</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<%= f.text_field :home_page %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">イメージ画像選択</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<div class="file-choice">
+							<%= f.attachment_field :farm_image, :size=>"25" %>
+							<hr>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">農園の特徴</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<%= f.text_area :feature %>
+						<hr>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4 col-md-4">
+						<p class="text-center">マップ画像選択</p>
+					</div>
+					<div class="col-8 col-md-8">
+						<div class="file-choice">
+							<%= f.attachment_field :map_image %>
+							<hr>
+						</div>
+							<P>※地図画像の貼り方は以下の動画を参考にしてください</P><br>
+							<p>※Macの場合:グーグルマップのページに行っていただき(shift+command+5)を押すことで<br>
+							スクリーンショットができるようになります</p>
+							<p>※Windowsの場合:①キーボードの [Print Screen] を押します、②スタートボタンを押します、③全てのプログラムを選択、
+							④アクセサリを押し、ペイントを選択、⑤名前を付けて保存(この際にファイルの拡張子をjpgにしてください)、⑥保存を押します<br>
+							</p>
+							<%= video_tag 'map_move.mp4', muted: true, autoplay: true, loop: true, size: "600x500" %>
+						<%= f.submit 'Farm情報登録', class: 'btn btn-info' %>
+					</div>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

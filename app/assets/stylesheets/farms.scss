@@ -1,3 +1,87 @@
 // Place all the styles related to the farms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.farm-details{
+	width: 100%;
+	float: left;
+	margin: 30px;
+}
+
+.details-name{
+  border-bottom: 8px solid #f7f7f7;
+  text-align: center;
+  line-height: 0.6;
+}
+
+.details-image{
+	float: left;
+	width: 50%;
+	background-size: cover;
+	height: 450px;
+}
+
+.detail-content{
+	float: left;
+	padding: 25px 0 0 30px;
+	width: 50%;
+}
+
+.details-address{
+	padding-bottom: 10px;
+}
+
+.details-phone-number{
+	padding-bottom: 10px;
+}
+
+.details-day{
+	padding-bottom: 10px;
+}
+
+.details-price{
+	padding-bottom: 10px;
+}
+
+.details-breed{
+	padding-bottom: 10px;
+}
+
+.details-link{
+	padding-bottom: 10px;
+}
+
+.details-feature{
+	padding: 70px 200px;
+	width: 70%;
+}
+.details-map{
+	width: 80%;
+	height: 400px;
+	background-position: center;
+  	background-size: cover;
+}
+
+.about-visual {
+	width: 100%;
+	height: 500px;
+	background: image-url('cherries6.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.about-visual-content {
+	width: 100%;
+	height: 500px;
+	background-color: rgba(0,0,0,0.3);
+	text-align: center;
+	padding-top: 110px;
+}
+.about-text {
+	color: #fff;
+}
+
+@media screen and (max-width:425px){
+	.cherry-container{
+			display:none;
+	}
+}

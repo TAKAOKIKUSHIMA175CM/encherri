@@ -1,0 +1,71 @@
+<div class="container">
+  	<div class="row">
+		<div class="col-12 col-md-11">
+		  <h1 class="text-center my-5"><%= @farm.farm_name %></h1>
+		    <div class="row">
+		    	<div class="col-12 col-md-4 mt-5">
+
+		    		<!-- 画像を表示する場合はattachment_image_tag、新規投稿や編集はf.attachment_fieldで書く -->
+		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:250×100" %>
+		    	</div>
+		    	<div class="col-12 col-md-8">
+		    			<p >住所 : <%= @farm.user.address %></p>
+		    			<hr>
+		    			<p class= "mt-5">電話番号 : <%= @farm.user.phone_number %></p>
+		    			<hr>
+		    			<p class= "mt-5">営業期間 : <%= @farm.business_day %></p>
+		    			<hr>
+		    			<p class= "mt-5">入園料金 : <%= @farm.price %>円<p>
+		    			<hr>
+		    			<p class= "mt-5">ホームページのリンク : <a href="<%= @farm.home_page %>"><%= @farm.home_page %></a></p>
+		    			<hr>
+		    	</div>
+		    </div>
+
+		    <% @cherry.each do |cherry| %>
+	         <div class="row">
+		    	<div class="col-12 col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
+		    		</div>
+		    	</div>
+		    	<div class="col-12 col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
+		    		</div>
+		    	</div>
+		    	<div class="col-12 col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<!-- cherryモデルに関数を作成、数値を文字列で表示させるようにしている -->
+		    			<p class= "mt-5">甘味 : <%=  cherry.taste %></p><hr>
+		    		</div>
+		    	</div>
+		    	<div class="col-12 col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
+		    		</div>
+		    	</div>
+		    </div>
+	        <% end %>
+
+		    <div class="row">
+		    	<div class="col-12 col-md-12">
+		    		<p class= "text-center my-5">当園の特徴</p>
+		    		<p class= "mt-5"><%= @farm.feature %></p>
+		    		<hr class= "mt-5">
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-12 col-md-12">
+		    		<p class= "text-center my-5">MAP</p>
+		    		<div class="show-map-image">
+		    			<%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg", size: "290×100" %>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+		<div class="col-12 col-md-1">
+			<%= button_to "編集", edit_farm_path(@farm.id), method: :get,class: "btn btn-primary mx-auto d-block" %>
+		</div>
+	</div>
+</div>

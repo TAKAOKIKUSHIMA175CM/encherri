@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farm_name: MyString
+  business_day: MyString
+  map: MyString
+  user_id: 1
+  farm_image_id: MyString
+  price: 1
+  area: MyString
+  feature: MyText
+
+two:
+  farm_name: MyString
+  business_day: MyString
+  map: MyString
+  user_id: 1
+  farm_image_id: MyString
+  price: 1
+  area: MyString
+  feature: MyText

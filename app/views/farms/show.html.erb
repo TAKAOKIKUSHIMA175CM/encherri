@@ -1,2 +1,76 @@
-<h1>Farms#show</h1>
-<p>Find me in app/views/farms/show.html.erb</p>
+<div class="container">
+  	<div class="row">
+		<div class="col-12">
+		  <h1 class="text-center my-5"><%= @farm.farm_name %></h1>
+		  	<!-- if user_sign_in?でログインしている時だけボタンを表示する.さらに、ファームの持ってるuser_idとカレントユーザーidが一緒なら表示する -->
+		  	<%= link_to "Farm編集", edit_farm_path(@farm.id), class: 'btn btn-info mx-4' if user_signed_in? && current_user.id == @farm.user_id %>
+		  	<div class="show-cherry-btn">
+		  		<%= link_to "Cherry情報", farm_cherries_path(@farm.id), class: 'btn btn-info' if user_signed_in? && current_user.id == @farm.user_id %>
+		  	</div>
+		  	<div class="row">
+		    	<div class="text-center col-12 col-md-4 mt-5">
+		    		 <%= attachment_image_tag @farm, :farm_image, format: "jpeg", fallback: "no_image.jpg, size:200×200" %>
+		    	</div>
+		    	<div class="col-12 col-md-8">
+		    			<p >住所 : <%= @farm.user.address %></p>
+		    			<hr>
+		    			<p class= "mt-5">電話番号 : <%= @farm.user.phone_number %></p>
+		    			<hr>
+		    			<p class= "mt-5">営業期間 : <%= @farm.business_day %></p>
+		    			<hr>
+		    			<p class= "mt-5">入園料金 : <%= @farm.price %>円<p>
+		    			<hr>
+		    		<% if @farm.home_page.blank? %>
+		    		<%else%>
+		    			<a href="<%= @farm.home_page %>" target="_blank">この農園のホームページへ</a>
+		    			<hr>
+		    		<% end %>
+		    	</div>
+		    </div>
+
+		    <!-- farmにcherryの情報を持っていなくてもeach文で回すことで解消される。配列に情報が入っていなくてもeach文が回ってnilになってブレイクになることに -->
+		    <% @farm.cherries.each do |cherry|%>
+
+		    <div class="row">
+		    	<div class="col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">主な取扱品種 : <%= cherry.cherry_name %></p><hr>
+		    		</div>
+		    	</div>
+		    	<div class="col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">大きさ : <%= cherry.size %></p><hr>
+		    		</div>
+		    	</div>
+		    	<div class="col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">甘味 : <%= cherry.taste %></p><hr>
+		    		</div>
+		    	</div>
+		    	<div class="col-md-3">
+		    		<div style="height: 40px; width: 250px">
+		    			<p class= "mt-5">酸味 : <%= cherry.sour %></p><hr>
+		    		</div>
+		    	</div>
+		    </div>
+		<% end %>
+
+		    <div class="row">
+		    	<div class="col-12 col-md-12">
+		    		<p class= "text-center my-5">当園の特徴</p>
+		    			<%= @farm.feature %>
+		    		<hr class= "mt-5">
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-12 col-md-12">
+		    		<p class="text-center my-5">MAP</p>
+		    		<div class="d-flex justify-content-center">
+		    			<!-- 画像の場合はmodelに記載を忘れないこと -->
+		    			<%= attachment_image_tag @farm, :map_image, :fill, 837, 500, format: "jpeg", fallback: "no_image.jpg", size: '100x500', class:"show-map" %>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>

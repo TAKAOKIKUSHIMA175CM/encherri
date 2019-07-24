@@ -1,0 +1,97 @@
+<h1 class="text-center mt-5">Area</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<table  class="table table-bordered my-5">
+				<thead>
+					<tr>
+						<th class = "text-center">地域</th>
+						<th class = "text-center">都道府県</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="text-center">北海道</th>
+						<% i=1 %>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>北海道</a></td>
+						<% @area.countup_number(i) %>
+					</tr>
+					<tr>
+						<th class="text-center">東北</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>青森</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>岩手</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>宮城</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>秋田</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>山形</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>福島</a>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center">関東</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>茨城</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>栃木</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>群馬</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>埼玉</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>千葉</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>東京</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>神奈川</a>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center">中部</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>新潟</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>富山</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>石川</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>福井</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>山梨</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>長野</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>岐阜</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>静岡</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>愛知</a>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center">近畿</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>三重</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>滋賀</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>京都</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>大阪</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>兵庫</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>奈良</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>和歌山</a>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center">中国</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>鳥取</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>島根</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>岡山</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>広島</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>山口</a>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center">四国</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>徳島</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>香川</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>愛媛</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>高知</a>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center">九州</th>
+						<td><a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>福岡</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>佐賀</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>長崎</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>熊本</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>大分</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>宮崎</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>鹿児島</a>
+							<a href="<%= "/area/search/#{i}" %>"><% i=i+1 %>沖縄</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
