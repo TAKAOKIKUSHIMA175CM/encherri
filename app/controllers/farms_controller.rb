@@ -110,9 +110,9 @@ class FarmsController < ApplicationController
   def area_search
     # @user = User.find_by(id: params[:id])
     #親のfarmから子のCherryを紐づけている
-    @farm = Farm.where(area_id: params[:id])
+    @farm = Farm.where(area_id: params[:id]).reverse_order
     # @cherries = Cherry.where(farm_id: @farm_id)
-    @cherries = Cherry.limit(17)
+    @cherries = Cherry.limit(17).reverse_order
     # ランサックの記述
     @search = Farm.ransack(params[:q])
     @farms = @search.result.page(params[:page]).reverse_order
@@ -132,7 +132,7 @@ class FarmsController < ApplicationController
 # 以下の入力を許可
   private
   def farm_params
-    params.require(:farm).permit(:farm_name, :user_id, :business_day, :map_image, :farm_image, :price, :area, :feature, :home_page, user_attributes:[:id])
+    params.require(:farm).permit(:farm_name, :user_id, :business_day, :map_image, :farm_image, :price, :area, :area_id, :feature, :home_page, user_attributes:[:id])
   end
 
   def search_params
