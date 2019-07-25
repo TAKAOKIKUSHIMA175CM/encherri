@@ -11,12 +11,13 @@
 	 </div>
 
 	<!-- Farm編集 -->
+	<%= form_for @farm, url: farms_path do |f| %>
 	<div class="row">
 		<div class="col-12 col-md-12">
 			<p class="text-center mt-5">*下記を入力して下さい。</p>
 				<div class="row">
 					<div class="col-4 col-md-4">
-			<%= form_for @farm, url: farms_path do |f| %>
+					
 						<p class="text-center">農園名</p>
 					</div>
 					<div class="col-8 col-md-8">
@@ -69,7 +70,7 @@
 
 				<div class="row">
 					<div class="col-4 col-md-4">
-						<p class="text-center">イメージ画像選択</p>
+						<p class="text-center">農園イメージ画像</p>
 					</div>
 					<div class="col-8 col-md-8">
 						<div class="file-choice">
@@ -109,8 +110,7 @@
 						<%= f.submit 'Farm情報登録', class: 'btn btn-info' %>
 					</div>
 				</div>
-			<% end %>
-
 		</div>
 	</div>
+	<% end %>
 </div>
