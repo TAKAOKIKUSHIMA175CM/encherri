@@ -16,5 +16,6 @@ ja:
       farm:
         farm_name: 農園名
         price: 入園料金
+        farm_image: 農園イメージ画像
       cherry:
         cherry_name: 品種名

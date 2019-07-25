@@ -23,7 +23,7 @@
       <%= search_form_for @search do |f| %>
           <%= f.label :farm_name_cont, "農園名" %>
           <%= f.search_field :farm_name_cont %>
-          <%= f.submit "検索" %>
+          <%= f.submit "検索", class: "search-btn mt-3" %>
       <% end %>
       <!-- ハンバーガーメニューのアイコン記述 -->
       <button type = "button" class="drawer-toggle drawer-hamburger">
