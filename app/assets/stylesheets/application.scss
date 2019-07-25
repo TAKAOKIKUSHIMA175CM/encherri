@@ -124,6 +124,9 @@ footer{
 	.main-page{
 		margin: 0 auto;
 	}
+	.search-btn{
+		width: 31%;
+	}
 	.nav-list-item{
 		width: 100%;
 		margin: 0 0 10px 0;
@@ -184,6 +187,13 @@ footer{
 		width: 220px;
 		height: 200px;
 	}
+	img.attachment.cherry.cherry_image{
+		display: block;
+		margin: 0 auto;
+	}
+	.breed-size{
+		padding-bottom: 20px ;
+	}
 	#cherry_cherry_name{
 		width: 200px;
 	}
@@ -216,8 +226,6 @@ footer{
 	}
 	#farm_map_image{
 		width: 180px;
-	}
-	.my-farm-image{
 	}
 	.show-map{
 		height: 200px;

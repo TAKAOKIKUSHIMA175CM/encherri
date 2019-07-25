@@ -76,7 +76,6 @@ gem 'jquery-rails'
 
 gem 'rails-i18n'
 
-
 gem 'json'
 gem 'mysql2'
 gem 'listen', '>= 3.0.5', '< 3.2'
