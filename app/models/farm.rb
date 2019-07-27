@@ -7,6 +7,6 @@ class Farm < ApplicationRecord
 	attachment :farm_image
 	attachment :map_image
 
-	validates :farm_name, :price, :farm_image, presence: true
+	validates :farm_name, :price, presence: true
 
 end

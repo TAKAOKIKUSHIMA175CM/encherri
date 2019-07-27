@@ -51,16 +51,16 @@
                     <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'farm list', admin_farms_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to '農園一覧', admin_farms_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'breed new', admin_cherries_new_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to '品種登録', admin_cherries_new_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'breed list', admin_cherries_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to '品種リスト', admin_cherries_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
 
               <!-- 農場管理人がログインした場合 -->
@@ -78,19 +78,19 @@
                     <%= link_to 'about', about_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'user edit', edit_user_path(current_user.id), class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to '個人情報編集', edit_user_path(current_user.id), class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'new farm', new_farm_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to '新規農園登録', new_farm_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'my farm', my_farm_path, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'My農園', my_farm_path, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'log out', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
                   <li class="nav-list-item">
-                    <%= link_to 'sign out', user_registration_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
+                    <%= link_to '退会', user_registration_path, method: :delete, class: "header-title nav-item nav-link text-dark" %>
                   </li>
 
               <% end %>

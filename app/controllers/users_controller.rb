@@ -25,8 +25,6 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def admin
-  end
 
   def admin_index
   end
