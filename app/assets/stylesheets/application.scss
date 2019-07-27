@@ -90,6 +90,10 @@ h1{
 .show-cherry-btn{
 	float: left;
 }
+img.attachment.farm.map_image{
+		display: block;
+		margin: 0 auto;
+}
 
 footer{
 	background-color: #FF4F50;
@@ -251,7 +255,11 @@ footer{
 	.admin-show-cherry{
 		margin-left: 23px;
 	}
-
+	img.attachment.farm.map_image{
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
 	#back{
   		position: fixed;
   		right: 20px;

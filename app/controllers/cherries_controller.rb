@@ -1,4 +1,8 @@
 class CherriesController < ApplicationController
+
+  # ユーザーがadminページに飛ばないための制御、コントローラーのadmin_userのメソッドを呼び出している
+  before_action :admin_user, only: [:admin_index, :admin_new, :admin_create, :admin_show, :admin_edit, :admin_update, :admin_destroy]
+
   def index
     @cherries = Cherry.page(params[:page]).reverse_order
     # @farms = Farm.all

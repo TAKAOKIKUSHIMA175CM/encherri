@@ -1,19 +1,20 @@
 class FarmsController < ApplicationController
+
+  # ユーザーがadminページに飛ばないための制御、コントローラーのadmin_userのメソッドを呼び出している
+  before_action :admin_user, only: [:admin_index, :admin_show, :admin_edit, :admin_update, :admin_destroy]
+
   def index
     # ransackの導入によりFarm.allを書かなくても検索していないときはallが出るようになる
-    # @farms = Farm.all
     @user = User.find_by(id: params[:id])
-    #親のfarmから子のCherryを紐づけている
     #order(:id).reverse_orderで新しい投稿順に表示している
     @farm = Farm.where(user_id: @user_id).order(:id).reverse_order
+    #親のfarmから子のCherryを紐づけている
     # @cherries = Cherry.where(farm_id: @farm_id)
     @cherries = Cherry.limit(8).order(:id).reverse_order
     # ランサックの記述
     @search = Farm.ransack(params[:q])
     @farms = @search.result.page(params[:page]).reverse_order
 
-    # @farm = Farm.new
-    # カミナリの記述
 
   end
 

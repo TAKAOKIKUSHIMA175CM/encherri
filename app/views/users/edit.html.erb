@@ -9,7 +9,7 @@
 							<p class="text-center">名前</p>
 						</div>
 						<div class="col-8 col-md-8">
-							<%= f.text_field :name_kanji, :size=>"80" %>
+							<%= f.text_field :name_kanji %>
 							<hr>
 						</div>
 					</div>
@@ -19,7 +19,7 @@
 							<p class="text-center">名前（カナ）</p>
 						</div>
 						<div class="col-8 col-md-8">
-							<%= f.text_field :name_kana, :size=>"80" %>
+							<%= f.text_field :name_kana %>
 							<hr>
 						</div>
 					</div>
@@ -29,7 +29,7 @@
 							<p class="text-center">郵便番号</p>
 						</div>
 						<div class="col-8 col-md-8">
-							<%= f.text_field :post_code, :size=>"80" %>
+							<%= f.text_field :post_code %>
 							<hr>
 						</div>
 					</div>
@@ -39,7 +39,7 @@
 							<p class="text-center">農園住所</p>
 						</div>
 						<div class="col-8 col-md-8">
-							<%= f.text_field :address, :size=>"80" %>
+							<%= f.text_field :address %>
 							<hr>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 							<p class="text-center">電話番号</p>
 						</div>
 						<div class="col-8 col-md-8">
-							<%= f.text_field :phone_number, :size=>"80" %>
+							<%= f.text_field :phone_number %>
 							<hr>
 							<%= f.submit '情報更新', class: 'btn btn-info' %>
 						</div>

@@ -12,7 +12,6 @@ devise_for :users
   resources :cherries, only: [:index, :show, :create, :edit, :update, :destroy]
 
   # get "farms/:area" => "farms#area"
-  get "admin/" => "users#admin_index"
   get "admin/users/:id/edit" => "users#admin_edit", as: "edit_admin_user"
   patch "admin/users/:id" => "users#admin_update", as: "update_admin_user"
   delete "admin/users/:id" => "users#admin_destroy", as: "destroy_admin_user"

@@ -41,6 +41,13 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	# ユーザーがadminページに飛ばないための制御
+	def admin_user
+		if current_user.admin_flag == nil
+			redirect_to farms_path
+		end
+	end
+
 	def ransack_description
 		@search = Farm.ransack(params[:q])
     	@farms = @search.result
@@ -60,8 +67,8 @@ class ApplicationController < ActionController::Base
 		devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
 	end
 
-  def search_params
-    params.require(:farm).permit(:farm_name)
-  end
+	def search_params
+	    params.require(:farm).permit(:farm_name)
+	end
 
 end
