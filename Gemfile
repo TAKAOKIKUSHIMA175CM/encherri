@@ -71,7 +71,7 @@ gem 'kaminari','~> 1.1.1'
 
 gem 'ransack'
 
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 gem 'rails-i18n'
