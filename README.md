@@ -1,24 +1,81 @@
-# README
+### README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Name
+encheri
 
-Things you may want to cover:
+## Overview
+ ・サクランボ観光農園を探されているユーザーが使用する検索サイト。
+ 
+   encheri （検索サイト)　について
+  【著作権者】　　Takao Kikushima
+  【制作日】　　　2019 7/1
+  【種　別】        検索サイト　　
+  【転載の可否】　可
+  【動作環境】　　Windows Mac
+  【開発環境】　　Ruby on rails5
+ 
+# Description
+ ・「enjoy cherry」訳して「encheri」
+ ・エンドユーザーがサクランボ観光農園を検索できる。
+ ・観光農園の方が自身の農園を簡単に掲載できる。
+ ・また、詳細ページから自身の農園のホームページにもユーザーを促すことができる。
+ ・農園名、都道府県別で検索できる。
+ ・ログインした方は自身の農園を掲載、編集、削除することができる。
+ ・取り扱い品種の紹介ができる。
+ ・エンドユーザーが農園の地図や住所、電話番号の記載があることにより、直接問い合わせができる。
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## Requirement
+# version
+・Ruby 2.5.5
+・Rails 5.2.3
+.JavaScript 8.10.0
+・jquery
+・Bootstrap 4.1.1
 
-* Database creation
+# Gem
+・devise
+・ransack
+・refile-mini_magick
+・refile
+・kaminari　1.1.1
 
-* Database initialization
+## Table
+・Users
+　ユーザーの情報が入っている。
 
-* How to run the test suite
+・farms
+  農園の情報が入っている。
+  
+ ・cherries
+  サクランボの情報が入っている。
+  
+ ・areas
+  都道府県の情報が入っている。
+  
 
-* Services (job queues, cache servers, search engines, etc.)
+## Usage
+# admin_user
+・
+・農園一覧画面から全農園の編集、削除ができる。
+・サクランボの品種登録ができる。
+・品種リストから登録されているサクランボ情報の編集、削除ができる。
 
-* Deployment instructions
+# login_user(農園投稿者)
+・個人情報編集から情報の編集ができる。
+・新規農園登録からご自身の農園情報の登録ができる。
+・My農園から登録したご自身の農園の編集、削除、サクランボ情報の追加ができる。
+・farmからご自身の農園のみ編集、サクランボ情報の詳細飛ぶことができる。
+・上記のサクランボ情報から編集、削除ができる
 
-* ...
+# User(ログインしていないユーザー）
+・farmから農園一覧を見ることができ、農園をクリックすることでその農園の詳細ページへアクセスできる。
+・breedでサクランボの品種一覧にアクセスできる。
+・areaから都道府県一覧へいき、検索したい都道府県名をクリックすると該当の農園一覧を見ることができる
+・aboutからaboutページにアクセスすることができる
+・農園検索で農園を検索できる
+
+## admin_user account
+・メールアドレス　a@a
+・パスワード　111111
