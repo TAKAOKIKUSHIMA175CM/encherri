@@ -1,6 +1,6 @@
 class CreateCherries < ActiveRecord::Migration[5.2]
   def change
-    create_table :cherries do |t|
+    create_table :cherries, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.integer :farm_id
       t.string :cherry_name
       t.string :taste
