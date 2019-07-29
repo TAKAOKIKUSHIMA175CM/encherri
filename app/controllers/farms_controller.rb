@@ -7,10 +7,10 @@ class FarmsController < ApplicationController
     # ransackの導入によりFarm.allを書かなくても検索していないときはallが出るようになる
     @user = User.find_by(id: params[:id])
     #order(:id).reverse_orderで新しい投稿順に表示している
-    @farm = Farm.where(user_id: @user_id).order(:id).reverse_order
+    @farm = Farm.where(user_id: @user_id).reverse_order
     #親のfarmから子のCherryを紐づけている
     # @cherries = Cherry.where(farm_id: @farm_id)
-    @cherries = Cherry.limit(8).order(:id).reverse_order
+    @cherries = Cherry.limit(8).reverse_order
     # ランサックの記述
     @search = Farm.ransack(params[:q])
     @farms = @search.result.page(params[:page]).reverse_order
