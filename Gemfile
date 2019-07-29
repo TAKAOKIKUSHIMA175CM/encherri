@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.8'
+ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -59,6 +59,11 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+# rubyのバージョンを変えたことにより、ローカルで立ち上がらなくなった時の修正、一番下に書いた記述をグループで囲った
+group :production do
+  gem 'mysql2'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -77,5 +82,4 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 
 gem 'json'
-gem 'mysql2'
 gem 'listen', '>= 3.0.5', '< 3.2'
